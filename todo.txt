@@ -1,3 +1,9 @@
-1. connect to mysql
-2. create index page and simple ui
-3. ...
+1. connect to mysql +
+2. create index page and simple ui +
+3. create test data +
+4. try the table output +
+5. add data editor for journal
+5.1. add create Modal
+6. update ui
+7. add logging
+8.
