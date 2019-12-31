@@ -61,6 +61,30 @@ def client():
     return render_template('client.html')
 
 
+@app.route('/journal/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    event = session.query(Event).get(id)
+    if request.method == 'POST':
+        event.fullname = request.form['fullname']
+        event.car_brand = request.form['car_brand']
+        event.car_number = request.form['car_number']
+        event.phone_number = request.form['phone_number']
+        event.enter_date = request.form['enter_date']
+        event.enter_time = request.form['enter_time']
+        event.pre_payment = request.form['pre_payment']
+        event.token = request.form['token']
+        event.departure_date = request.form['departure_date']
+        event.departure_time = request.form['departure_time']
+        event.total_days = request.form['total_days']
+        event.after_payment = request.form['after_payment']
+        session.commit()
+        return redirect('/journal')
+    else:
+        return render_template('journal.html', edit_event=event)
+
+
+
+
 @app.route('/journal/delete/<int:id>')
 def delete(id):
     event = session.query(Event).get(id)

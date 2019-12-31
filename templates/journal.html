@@ -2,7 +2,13 @@
 
 {% block head %}
 <script type="text/javascript">
-  $('#create_event').on('shown.bs.modal', function() {
+  $('#create_').on('shown.bs.modal', function() {
+   $('#myInput').focus();
+ });
+</script>
+
+<script type="text/javascript">
+  $('#edit_event').on('shown.bs.modal', function() {
    $('#myInput').focus();
  });
 </script>
@@ -15,6 +21,8 @@
 {% endblock %}
 
 {% block body %}
+
+  <!-- CREATE MODAL -->
   <div id="create_event" class="modal" tabindex="-1" role="dialog" >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -86,12 +94,14 @@
   </div>
 
 
+
+
   <!-- TABLE -->
   <div class="card">
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Журнал обліку</h3>
     <div class="card-body">
       <div id="table" class="table-editable">
-        <table class="table table-bordered table-responsive-md table-striped text-center">
+        <table class="table table-bordered table-responsive-md table-striped table-sm text-center">
           <caption>
             <div class="p-3">
               <button class="btn btn-success float-left" data-toggle="modal" data-target="#create_event">+ Створити запис</button>
@@ -132,11 +142,84 @@
                 <td class="pt-3-half">{{event.total_days}}</td>
                 <td class="pt-3-half">{{event.after_payment}}</td>
                 <td class="pt-3-half">
+                  <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_{{event.id}}">
+                    <i class="fa fa-pencil"></i>
+                  </a>
                   <a class="btn btn-danger btn-sm"  href="/journal/delete/{{event.id}}">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>
               </tr>
+              <!-- EDIT MODAL -->
+              <div id="edit_{{event.id}}" class="modal" tabindex="-1" role="dialog" >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Змінити запис</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="POST" action="/journal/edit/{{event.id}}">
+                        <p>
+                          <label for="title">ПІБ:</label>
+                          <input class="form-control" type="text" name="fullname" id="fullname" placeholder="SSSS" aria-label="Title">
+                        </p>
+                        <p>
+                          <label for="author">Марка авто:</label>
+                          <input class="form-control" type="text" name="car_brand" id="car_brand" placeholder="Nissan" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="author">Номер авто:</label>
+                          <input class="form-control" type="text" name="car_number" id="car_number" placeholder="Nissan" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="content">Номер телефону:</label>
+                          <input class="form-control" type="text" name="phone_number" id="phone_number" placeholder="0660280336" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="author">Дата заїзду:</label>
+                          <input class="form-control" type="text" name="enter_date" id="enter_date" placeholder="05/12/2019" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="author">Час заїзду:</label>
+                          <input class="form-control" type="text" name="enter_time" id="enter_time" placeholder="12:36" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="author">Сума поч.:</label>
+                          <input class="form-control" type="text" name="pre_payment" id="pre_payment" placeholder="2000" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="author">Номер жетону:</label>
+                          <input class="form-control" type="text" name="token" id="token" placeholder="003122313" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="author">Дата виїзду:</label>
+                          <input class="form-control" type="text" name="departure_date" id="departure_date" placeholder="12/12/2020" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="author">Час виїзду:</label>
+                          <input class="form-control" type="text" name="departure_time" id="departure_time" placeholder="20:30" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="author">К-сть днів:</label>
+                          <input class="form-control" type="text" name="total_days" id="total_days" placeholder="5" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="author">Сума по факту:</label>
+                          <input class="form-control" type="text" name="after_payment" id="after_payment" placeholder="3200" aria-label="Author">
+                        </p>
+                        <div class="modal-footer">
+                          <input type="submit" class="btn btn-primary" value="Зберегти"></input>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+                        </div>
+                      </form>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             {% endfor %}
           </tbody>
         </table>
