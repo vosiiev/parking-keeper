@@ -1,23 +1,27 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<script type="text/javascript">
-  $('#create_').on('shown.bs.modal', function() {
-   $('#myInput').focus();
- });
-</script>
 
-<script type="text/javascript">
-  $('#edit_event').on('shown.bs.modal', function() {
-   $('#myInput').focus();
- });
-</script>
+  <!-- Modal scripts -->
+  <script type="text/javascript">
+    $('#create_').on('shown.bs.modal', function() {
+     $('#myInput').focus();
+   });
+  </script>
 
-<style media="screen">
-  .pt-3-half {
-    padding-top: 1.4rem;
-  }
-</style>
+  <script type="text/javascript">
+    $('#edit_event').on('shown.bs.modal', function() {
+     $('#myInput').focus();
+   });
+  </script>
+
+
+  <style media="screen">
+    .pt-3-half {
+      padding-top: 1.4rem;
+    }
+  </style>
+  
 {% endblock %}
 
 {% block body %}
@@ -92,8 +96,6 @@
       </div>
     </div>
   </div>
-
-
 
 
   <!-- TABLE -->
@@ -226,4 +228,5 @@
       </div>
     </div>
   </div>
+
 {% endblock %}

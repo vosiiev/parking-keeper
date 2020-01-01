@@ -9,6 +9,7 @@ engine = create_engine('mysql+mysqlconnector://p_user:R3cogn1se!@localhost/parki
 Session = sessionmaker(bind=engine)
 session = Session()
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -16,6 +17,11 @@ def index():
 
 @app.route('/journal', methods=['GET', 'POST'])
 def journal():
+    '''
+    If POST: get data from journal page form
+    and save it to database.
+    If GET: retrieve data from database and render the journal page.
+    '''
     if request.method == 'POST':
         fullname = request.form['fullname']
         car_brand = request.form['car_brand']
@@ -63,6 +69,10 @@ def client():
 
 @app.route('/journal/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
+    '''
+    Retrieve data from journal event edit form and
+    save it to the database.
+    '''
     event = session.query(Event).get(id)
     if request.method == 'POST':
         event.fullname = request.form['fullname']
@@ -87,6 +97,9 @@ def edit(id):
 
 @app.route('/journal/delete/<int:id>')
 def delete(id):
+    '''
+    Delete journal event on button click.
+    '''
     event = session.query(Event).get(id)
     session.delete(event)
     session.commit()
