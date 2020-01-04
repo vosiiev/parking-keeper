@@ -2,10 +2,11 @@ from sqlalchemy import create_engine
 from flask import Flask, Response, render_template, request, redirect, \
                     session, url_for, escape, abort
 from sqlalchemy.orm import sessionmaker
-from data import Event, User, key
-from cryptography.fernet import Fernet
+from data import Event, User
 from flask_login import LoginManager, login_required, \
                         login_user, logout_user, current_user
+from security import hash_password, verify_password
+import logging
 
 
 app = Flask(__name__)
@@ -16,7 +17,8 @@ db_session = Session()
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
-cipher_suite = Fernet(key)
+logging.basicConfig(filename='info.log',level=logging.DEBUG)
+
 
 
 @app.route('/login', methods=["GET", "POST"])
@@ -25,12 +27,19 @@ def login():
         username = request.form['username']
         password = request.form['password']
         for user in db_session.query(User).all():
-            print(user)
             if username == user.username:
-                # uncipher_text = cipher_suite.decrypt(bytes(user.password))
-                if password == user.password:
+                if verify_password(user.password, password):
                     login_user(user)
+                    logging.info(f'{user.username} logged in')
                     return redirect(url_for('journal'))
+                else:
+                    error = 'Невірно введений пароль'
+                    logging.info(f'{user.username} failed to log in')
+                    return render_template('login.html', error=error)
+        else:
+            error = 'Користувача з таким іменем не знайдено'
+            logging.info(f'{username} doesn\'t exist')
+            return render_template('login.html', error=error)
     else:
         return render_template('login.html')
 
@@ -94,9 +103,9 @@ def journal():
         return render_template('journal.html', events=events)
 
 
-@app.route('/clients')
+@app.route('/customers')
 def clients():
-    return render_template('clients.html')
+    return render_template('customers.html')
 
 
 @app.route('/client')
@@ -129,8 +138,6 @@ def edit(id):
         return redirect(url_for('journal'))
     else:
         return render_template('journal.html', edit_event=event)
-
-
 
 
 @app.route('/journal/delete/<int:id>')

@@ -6,8 +6,12 @@
 5.1. add create Modal +
 5.2. add delete and create +
 5.3. add edit modal +
-6. update ui
+6. update ui +
 7. add logging
 8. add register and login +
-8.1. update pages according to log info
+8.1. update pages according to log info +
 9. comment everything
+10. add customers page
+10.1. create db table
+10.2. output info from db to html
+10.3. edit data

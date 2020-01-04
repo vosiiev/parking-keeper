@@ -17,7 +17,6 @@
   </head>
 
   <body>
-
     {% if current_user.is_authenticated %}
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="/">Parking Keeper</a>
@@ -30,7 +29,7 @@
               <a class="nav-link" href="/journal">Журнал</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/clients">Клієнти</a>
+              <a class="nav-link" href="/customers">Клієнти</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/price">Прайс</a>
@@ -51,7 +50,7 @@
               <a class="nav-link" href="/journal">Журнал</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/clients">Клієнти</a>
+              <a class="nav-link" href="/customers">Клієнти</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/price">Прайс</a>
@@ -61,6 +60,10 @@
         </div>
       </nav>
     {% endif %}
+    <div class="container">
+      <br>
+      {% include 'includes/_messages.html' %}
+    </div>
     {% block body %} {% endblock %}
   </body>
 </html>

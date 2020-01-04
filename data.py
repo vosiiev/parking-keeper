@@ -3,18 +3,6 @@ from sqlalchemy import Column, Integer, String, Date, Time
 from flask_login import UserMixin
 
 Base = declarative_base()
-key = b'hYiLOD8bNQlOWyFsDXXlPiFzn3CrT07N2bgzMkJHXF0='
-
-
-# class User(UserMixin):
-#
-#     def __init__(self, id):
-#         self.id = id
-#         self.name = "user" + str(id)
-#         self.password = self.name + "_secret"
-#
-#     def __repr__(self):
-#         return "%d/%s/%s" % (self.id, self.name, self.password)
 
 
 class User(UserMixin, Base):
@@ -22,8 +10,8 @@ class User(UserMixin, Base):
 
     id = Column(Integer, primary_key=True)
     username = Column(String(32))
-    password = Column(String(100))
-
+    password = Column(String(256))
+    # access_level = Column(Integer)
 
     def __repr__(self):
         return "%d/%s/%s" % (self.id, self.username, self.password)
@@ -63,3 +51,13 @@ class Event(Base):
     departure_time = Column(String(32))
     total_days = Column(Integer)
     after_payment = Column(Integer)
+
+
+class Customers(Base):
+    __tablename__ = 'customers'
+
+    id = Column(Integer, primary_key=True)
+    card_number = Column(String(32))
+    fullname = Column(String(32))
+    phone_number = Column(String(32))
+    car_number = Column(String(32))

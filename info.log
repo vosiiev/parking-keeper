@@ -1,0 +1,57 @@
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:17:59] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:17:59] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:17:59] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:17:59] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:17:59] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:17:59] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:00] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:00] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:00] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:00] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:00] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:00] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:00] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:00] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:00] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT users.id AS users_id, users.username AS users_username, users.password AS users_password 
+FROM users
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:root:admin1 doesn't exist
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:03] "POST /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:03] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:03] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:03] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:03] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT users.id AS users_id, users.username AS users_username, users.password AS users_password 
+FROM users
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:root:admin logged in
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:08] "POST /login HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:SELECT users.id AS users_id, users.username AS users_username, users.password AS users_password 
+FROM users 
+WHERE users.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '5'}
+INFO:sqlalchemy.engine.base.Engine:SELECT events.id AS events_id, events.fullname AS events_fullname, events.car_brand AS events_car_brand, events.car_number AS events_car_number, events.phone_number AS events_phone_number, events.enter_date AS events_enter_date, events.enter_time AS events_enter_time, events.pre_payment AS events_pre_payment, events.token AS events_token, events.departure_date AS events_departure_date, events.departure_time AS events_departure_time, events.total_days AS events_total_days, events.after_payment AS events_after_payment 
+FROM events
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:08] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:08] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:08] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:08] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Jan/2020 22:18:09] "GET /static/js/editable.js HTTP/1.1" 404 -
