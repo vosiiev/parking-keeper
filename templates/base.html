@@ -17,26 +17,50 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Parking Keeper</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/journal">Журнал</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/clients">Клієнти</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/price">Прайс</a>
-          </li>
-        </ul>
-        <a class="btn btn-outline-primary" href="#">Вийти</a>
-      </div>
-    </nav>
+
+    {% if current_user.is_authenticated %}
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Parking Keeper</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/journal">Журнал</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/clients">Клієнти</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/price">Прайс</a>
+            </li>
+          </ul>
+          <a class="btn btn-outline-primary" href="/logout">Вийти</a>
+        </div>
+      </nav>
+    {% else %}
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Parking Keeper</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/journal">Журнал</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/clients">Клієнти</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/price">Прайс</a>
+            </li>
+          </ul>
+          <a class="btn btn-outline-primary" href="/login">Увійти</a>
+        </div>
+      </nav>
+    {% endif %}
     {% block body %} {% endblock %}
   </body>
 </html>

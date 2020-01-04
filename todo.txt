@@ -8,5 +8,6 @@
 5.3. add edit modal +
 6. update ui
 7. add logging
-8. add register and login
+8. add register and login +
+8.1. update pages according to log info
 9. comment everything

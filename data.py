@@ -1,19 +1,32 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Date, Time
+from flask_login import UserMixin
 
 Base = declarative_base()
+key = b'hYiLOD8bNQlOWyFsDXXlPiFzn3CrT07N2bgzMkJHXF0='
 
-class User(Base):
+
+# class User(UserMixin):
+#
+#     def __init__(self, id):
+#         self.id = id
+#         self.name = "user" + str(id)
+#         self.password = self.name + "_secret"
+#
+#     def __repr__(self):
+#         return "%d/%s/%s" % (self.id, self.name, self.password)
+
+
+class User(UserMixin, Base):
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
-    name = Column(String(32))
-    fullname = Column(String(32))
-    nickname = Column(String(32))
+    username = Column(String(32))
+    password = Column(String(100))
+
 
     def __repr__(self):
-        return "<User(name='%s', fullname='%s', nickname='%s')>" % (
-                             self.name, self.fullname, self.nickname)
+        return "%d/%s/%s" % (self.id, self.username, self.password)
 
 
 class Event(Base):
