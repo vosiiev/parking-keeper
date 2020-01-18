@@ -1,5 +1,6 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Date, Time
+from sqlalchemy import Column, Integer, String, Date, Time, ForeignKey
+from sqlalchemy.orm import relationship
 from flask_login import UserMixin
 
 Base = declarative_base()
@@ -11,10 +12,23 @@ class User(UserMixin, Base):
     id = Column(Integer, primary_key=True)
     username = Column(String(32))
     password = Column(String(256))
-    # access_level = Column(Integer)
+    roles = relationship('Role', secondary='user_roles')
 
     def __repr__(self):
         return "%d/%s/%s" % (self.id, self.username, self.password)
+
+
+class Role(Base):
+    __tablename__ = 'roles'
+    id = Column(Integer(), primary_key=True)
+    name = Column(String(50), unique=True)
+
+
+class UserRoles(Base):
+    __tablename__ = 'user_roles'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'))
+    role_id = Column(Integer, ForeignKey('roles.id', ondelete='CASCADE'))
 
 
 class Event(Base):

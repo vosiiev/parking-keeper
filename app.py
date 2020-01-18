@@ -5,6 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from data import Event, User
 from flask_login import LoginManager, login_required, \
                         login_user, logout_user, current_user
+from flask_user import roles_required
 from security import hash_password, verify_password
 import logging
 
