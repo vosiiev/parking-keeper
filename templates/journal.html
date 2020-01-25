@@ -15,6 +15,98 @@
    });
   </script>
 
+  <script>
+  function sortTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("journal");
+    switching = true;
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+      // Start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /* Loop through all table rows (except the
+      first, which contains table headers): */
+      for (i = 1; i < (rows.length - 1); i++) {
+        // Start by saying there should be no switching:
+        shouldSwitch = false;
+        /* Get the two elements you want to compare,
+        one from current row and one from the next: */
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        /* Check if the two rows should switch place,
+        based on the direction, asc or desc: */
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /* If a switch has been marked, make the switch
+        and mark that a switch has been done: */
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        // Each time a switch is done, increase this count by 1:
+        switchcount ++;
+      } else {
+        /* If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again. */
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
+  </script>
+
+  <script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("journal");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
+
+  <style media="screen">
+    #myInput {
+      background-position: 10px 12px; /* Position the search icon */
+      background-repeat: no-repeat; /* Do not repeat the icon image */
+      width: 100%; /* Full-width */
+      font-size: 16px; /* Increase font-size */
+      padding: 12px 20px 12px 40px; /* Add some padding */
+      border: 1px solid #ddd; /* Add a grey border */
+      margin-bottom: 12px; /* Add some space below the input */
+    }
+  </style>
 
   <style media="screen">
     .pt-3-half {
@@ -48,7 +140,7 @@
             </p>
             <p>
               <label for="author">Номер авто:</label>
-              <input class="form-control" type="text" name="car_number" id="car_number" placeholder="Nissan" aria-label="Author">
+              <input class="form-control" type="text" name="car_number" id="car_number" placeholder="АН2012ВТ" aria-label="Author">
             </p>
             <p>
               <label for="content">Номер телефону:</label>
@@ -56,27 +148,23 @@
             </p>
             <p>
               <label for="author">Дата заїзду:</label>
-              <input class="form-control" type="text" name="enter_date" id="enter_date" placeholder="05/12/2019" aria-label="Author">
+              <input class="form-control" type="date" value="01/01/2020" name="enter_date" id="enter_date" placeholder="05/12/2019" aria-label="Author">
             </p>
             <p>
               <label for="author">Час заїзду:</label>
-              <input class="form-control" type="text" name="enter_time" id="enter_time" placeholder="12:36" aria-label="Author">
+              <input class="form-control" type="time" name="enter_time" id="enter_time" placeholder="12:36" aria-label="Author">
             </p>
             <p>
               <label for="author">Сума поч.:</label>
               <input class="form-control" type="text" name="pre_payment" id="pre_payment" placeholder="2000" aria-label="Author">
             </p>
             <p>
-              <label for="author">Номер жетону:</label>
-              <input class="form-control" type="text" name="token" id="token" placeholder="003122313" aria-label="Author">
-            </p>
-            <p>
               <label for="author">Дата виїзду:</label>
-              <input class="form-control" type="text" name="departure_date" id="departure_date" placeholder="12/12/2020" aria-label="Author">
+              <input class="form-control" type="date" value="01/01/2020" name="departure_date" id="departure_date" placeholder="12/12/2020" aria-label="Author">
             </p>
             <p>
               <label for="author">Час виїзду:</label>
-              <input class="form-control" type="text" name="departure_time" id="departure_time" placeholder="20:30" aria-label="Author">
+              <input class="form-control" type="time" name="departure_time" id="departure_time" placeholder="20:30" aria-label="Author">
             </p>
             <p>
               <label for="author">К-сть днів:</label>
@@ -103,7 +191,8 @@
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Журнал обліку</h3>
     <div class="card-body">
       <div id="table" class="table-editable">
-        <table class="table table-bordered table-responsive-md table-striped table-sm text-center">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+        <table id="journal" class="table table-bordered table-responsive-md table-striped table-sm text-center">
           <caption>
             <div class="p-3">
               <button class="btn btn-success float-left" data-toggle="modal" data-target="#create_event">+ Створити запис</button>
@@ -111,38 +200,39 @@
           </caption>
           <thead>
             <tr>
-              <th class="text-center align-top">№</th>
-              <th class="text-center align-top">П.І.Б.</th>
-              <th class="text-center align-top">Марка</th>
-              <th class="text-center align-top">Номер авто</th>
-              <th class="text-center align-top">Номер тел.</th>
-              <th class="text-center align-top">Дата заїзду</th>
-              <th class="text-center align-top">Час заїзду</th>
-              <th class="text-center align-top">Поч. сума</th>
-              <th class="text-center align-top">Жетон №</th>
-              <th class="text-center align-top">Дата виїзду</th>
-              <th class="text-center align-top">Час виїзду</th>
-              <th class="text-center align-top">К-сть днів</th>
-              <th class="text-center align-top">Сума по факту</th>
+              <th onclick="sortTable(0)" class="text-center align-top">№</th>
+              <th onclick="sortTable(1)" class="text-center align-top">П.І.Б.</th>
+              <th onclick="sortTable(2)" class="text-center align-top">Марка</th>
+              <th onclick="sortTable(4)" class="text-center align-top">Номер тел.</th>
+              <th onclick="sortTable(3)" class="text-center align-top">Номер авто</th>
+              <th onclick="sortTable(5)" class="text-center align-top">Дата заїзду</th>
+              <th onclick="sortTable(6)" class="text-center align-top">Час заїзду</th>
+              <th onclick="sortTable(7)" class="text-center align-top">Поч. сума</th>
+              <th onclick="sortTable(9)" class="text-center align-top">Дата виїзду</th>
+              <th onclick="sortTable(10)" class="text-center align-top">Час виїзду</th>
+              <th onclick="sortTable(11)" class="text-center align-top">К-сть днів</th>
+              <th onclick="sortTable(12)" class="text-center align-top">Сума по факту</th>
+              {% if current_user.role == 'admin' %}
               <th></th>
+              {% endif %}
             </tr>
           </thead>
           <tbody>
             {% for event in events %}
               <tr>
                 <td class="pt-3-half">{{event.id}}</td>
-                <td class="pt-3-half">{{event.fullname}}</td>
+                <td class="pt-3-half">{{' '.join((event.last_name, event.first_name, event.middle_name))}}</td>
                 <td class="pt-3-half">{{event.car_brand}}</td>
                 <td class="pt-3-half">{{event.car_number}}</td>
                 <td class="pt-3-half">{{event.phone_number}}</td>
                 <td class="pt-3-half">{{event.enter_date}}</td>
                 <td class="pt-3-half">{{event.enter_time}}</td>
                 <td class="pt-3-half">{{event.pre_payment}}</td>
-                <td class="pt-3-half">{{event.token}}</td>
                 <td class="pt-3-half">{{event.departure_date}}</td>
                 <td class="pt-3-half">{{event.departure_time}}</td>
                 <td class="pt-3-half">{{event.total_days}}</td>
                 <td class="pt-3-half">{{event.after_payment}}</td>
+                {% if current_user.role == 'admin' %}
                 <td class="pt-3-half">
                   <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_{{event.id}}">
                     <i class="fa fa-pencil"></i>
@@ -151,6 +241,7 @@
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>
+                {% endif %}
               </tr>
               <!-- EDIT MODAL -->
               <div id="edit_{{event.id}}" class="modal" tabindex="-1" role="dialog" >
@@ -182,27 +273,23 @@
                         </p>
                         <p>
                           <label for="author">Дата заїзду:</label>
-                          <input class="form-control" type="text" name="enter_date" id="enter_date" placeholder="05/12/2019" aria-label="Author">
+                          <input value="21/06/2019" class="form-control" type="date" name="enter_date" id="enter_date" placeholder="05/12/2019" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">Час заїзду:</label>
-                          <input class="form-control" type="text" name="enter_time" id="enter_time" placeholder="12:36" aria-label="Author">
+                          <input class="form-control" type="time" name="enter_time" id="enter_time" placeholder="12:36" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">Сума поч.:</label>
                           <input class="form-control" type="text" name="pre_payment" id="pre_payment" placeholder="2000" aria-label="Author">
                         </p>
                         <p>
-                          <label for="author">Номер жетону:</label>
-                          <input class="form-control" type="text" name="token" id="token" placeholder="003122313" aria-label="Author">
-                        </p>
-                        <p>
                           <label for="author">Дата виїзду:</label>
-                          <input class="form-control" type="text" name="departure_date" id="departure_date" placeholder="12/12/2020" aria-label="Author">
+                          <input class="form-control" type="date" name="departure_date" id="departure_date" placeholder="12/12/2020" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">Час виїзду:</label>
-                          <input class="form-control" type="text" name="departure_time" id="departure_time" placeholder="20:30" aria-label="Author">
+                          <input class="form-control" type="time" name="departure_time" id="departure_time" placeholder="20:30" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">К-сть днів:</label>

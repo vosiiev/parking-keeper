@@ -7,28 +7,15 @@ Base = declarative_base()
 
 
 class User(UserMixin, Base):
-    __tablename__ = 'users'
-
+    __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
     username = Column(String(32))
     password = Column(String(256))
-    roles = relationship('Role', secondary='user_roles')
+    role = Column(String(32))
 
     def __repr__(self):
         return "%d/%s/%s" % (self.id, self.username, self.password)
 
-
-class Role(Base):
-    __tablename__ = 'roles'
-    id = Column(Integer(), primary_key=True)
-    name = Column(String(50), unique=True)
-
-
-class UserRoles(Base):
-    __tablename__ = 'user_roles'
-    id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'))
-    role_id = Column(Integer, ForeignKey('roles.id', ondelete='CASCADE'))
 
 
 class Event(Base):
@@ -50,28 +37,36 @@ class Event(Base):
     after_payment: 2500
 
     '''
-    __tablename__ = 'events'
-
+    __tablename__ = 'event'
     id = Column(Integer, primary_key=True)
-    fullname = Column(String(32))
+    last_name = Column(String(32))
+    first_name = Column(String(32))
+    middle_name = Column(String(32))
     car_brand = Column(String(32))
     car_number = Column(String(32))
     phone_number = Column(String(32))
-    enter_date = Column(String(32))
-    enter_time = Column(String(32))
+    enter_date = Column(Date)
+    enter_time = Column(Time)
     pre_payment = Column(Integer)
-    token = Column(String(32))
-    departure_date = Column(String(32))
-    departure_time = Column(String(32))
+    departure_date = Column(Date)
+    departure_time = Column(Time)
     total_days = Column(Integer)
     after_payment = Column(Integer)
 
 
-class Customers(Base):
-    __tablename__ = 'customers'
-
+class Customer(Base):
+    __tablename__ = 'customer'
     id = Column(Integer, primary_key=True)
-    card_number = Column(String(32))
-    fullname = Column(String(32))
+    last_name = Column(String(32))
+    first_name = Column(String(32))
+    middle_name = Column(String(32))
     phone_number = Column(String(32))
-    car_number = Column(String(32))
+    car = relationship('Car', backref='customer')
+
+
+class Car(Base):
+    __tablename__ = 'car'
+    id = Column(Integer, primary_key=True)
+    brand = Column(String(32))
+    number = Column(String(32))
+    customer_id = Column(Integer, ForeignKey('customer.id'))

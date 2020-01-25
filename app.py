@@ -2,13 +2,13 @@ from sqlalchemy import create_engine
 from flask import Flask, Response, render_template, request, redirect, \
                     session, url_for, escape, abort
 from sqlalchemy.orm import sessionmaker
-from data import Event, User
+from data import Event, User, Customer, Car
 from flask_login import LoginManager, login_required, \
                         login_user, logout_user, current_user
-from flask_user import roles_required
 from security import hash_password, verify_password
 import logging
-
+from functools import wraps
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = b'\xec\x18\xd6\x08y\xcb\xa2\r^\xdb\xc4\xf9U\x0fj"'
@@ -19,7 +19,6 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 logging.basicConfig(filename='info.log',level=logging.DEBUG)
-
 
 
 @app.route('/login', methods=["GET", "POST"])
@@ -43,6 +42,7 @@ def login():
             return render_template('login.html', error=error)
     else:
         return render_template('login.html')
+
 
 @app.route('/logout')
 @login_required
@@ -70,29 +70,32 @@ def journal():
     If GET: retrieve data from database and render the journal page.
     '''
     if request.method == 'POST':
-        fullname = request.form['fullname']
+        fullname = (request.form['fullname']).split()
+        last_name = fullname[0]
+        first_name = fullname[1]
+        middle_name = fullname[2]
         car_brand = request.form['car_brand']
         car_number = request.form['car_number']
         phone_number = request.form['phone_number']
-        enter_date = request.form['enter_date']
-        enter_time = request.form['enter_time']
+        enter_date = datetime.strptime(request.form['enter_date'], '%Y-%m-%d')
+        enter_time = datetime.strptime(request.form['enter_time'], '%H:%M')
         pre_payment = request.form['pre_payment']
-        token = request.form['token']
-        departure_date = request.form['departure_date']
-        departure_time = request.form['departure_time']
+        departure_date = datetime.strptime(request.form['departure_date'], '%Y-%m-%d')
+        departure_time = datetime.strptime(request.form['departure_time'], '%H:%M')
         total_days = request.form['total_days']
         after_payment = request.form['after_payment']
         new_event = Event(
-                fullname=fullname,
+                last_name=last_name,
+                first_name=first_name,
+                middle_name=middle_name,
                 car_brand=car_brand,
                 car_number=car_number,
                 phone_number=phone_number,
-                enter_date=enter_date,
-                enter_time=enter_time,
+                enter_date=enter_date.date(),
+                enter_time=enter_time.time(),
                 pre_payment=pre_payment,
-                token=token,
-                departure_date=departure_date,
-                departure_time=departure_time,
+                departure_date=departure_date.date(),
+                departure_time=departure_time.time(),
                 total_days=total_days,
                 after_payment=after_payment,
             )
@@ -104,9 +107,25 @@ def journal():
         return render_template('journal.html', events=events)
 
 
-@app.route('/customers')
-def clients():
-    return render_template('customers.html')
+# @app.route('/customers', methods=['GET', 'POST'])
+# @login_required
+# def customers():
+#         if request.method == 'POST':
+#             fullname = (request.form['fullname']).split()
+#             last_name = fullname[0]
+#             first_name = fullname[1]
+#             middle_name = fullname[2]
+#             phone_number = request.form['phone_number']
+#             new_customer = Customer(
+#                     fullname=fullname,
+#                     phone_number=phone_number,
+#                 )
+#             db_session.add(new_customer)
+#             db_session.commit()
+#             return redirect(url_for('customers'))
+#         else:
+#             customers = db_session.query(Customer).all()
+#             return render_template('customers.html', customers=customers)
 
 
 @app.route('/client')
