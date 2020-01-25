@@ -1,7 +1,212 @@
 {% extends 'base.html' %}
 
 {% block head %}
+  <script type="text/javascript">
+    $('#create_customer').on('shown.bs.modal', function() {
+     $('#myInput').focus();
+   });
+  </script>
+
+  <script type="text/javascript">
+    $('#create_car').on('shown.bs.modal', function() {
+     $('#myInput').focus();
+   });
+  </script>
+
+  <script type="text/javascript">
+    $('#edit_customer').on('shown.bs.modal', function() {
+     $('#myInput').focus();
+   });
+  </script>
+
+  <style media="screen">
+    #myInput {
+      background-position: 10px 12px; /* Position the search icon */
+      background-repeat: no-repeat; /* Do not repeat the icon image */
+      width: 100%; /* Full-width */
+      font-size: 16px; /* Increase font-size */
+      padding: 12px 20px 12px 40px; /* Add some padding */
+      border: 1px solid #ddd; /* Add a grey border */
+      margin-bottom: 12px; /* Add some space below the input */
+    }
+  </style>
 {% endblock %}
 
 {% block body %}
+
+<!-- CREATE MODAL -->
+<div id="create_customer" class="modal" tabindex="-1" role="dialog" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Новий запис</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/customers">
+          <p>
+            <label for="title">ПІБ:</label>
+            <input class="form-control" type="text" name="fullname" id="fullname" placeholder="Петренко Олексій Іванович" aria-label="Title">
+          </p>
+          <p>
+            <label for="content">Номер телефону:</label>
+            <input class="form-control" type="text" name="phone_number" id="phone_number" placeholder="0660280336" aria-label="Author">
+          </p>
+          <p>
+            <label for="author">Марка авто:</label>
+            <input class="form-control" type="text" name="car_brand" id="car_brand" placeholder="Nissan" aria-label="Author">
+          </p>
+          <p>
+            <label for="author">Номер авто:</label>
+            <input class="form-control" type="text" name="car_number" id="car_number" placeholder="АН2012ВТ" aria-label="Author">
+          </p>
+          <div class="modal-footer">
+            <input type="submit" class="btn btn-primary" value="Зберегти"></input>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- TABLE -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Список клієнтів</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+      <table id="customers" class="table table-bordered table-responsive-md table-striped table-sm text-center">
+        <caption>
+          <div class="p-3">
+            <button class="btn btn-success float-left" data-toggle="modal" data-target="#create_customer">+ Додати клієнта</button>
+          </div>
+        </caption>
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)" class="text-center align-top">№</th>
+            <th onclick="sortTable(1)" class="text-center align-top">П.І.Б.</th>
+            <th onclick="sortTable(2)" class="text-center align-top">Номер тел.</th>
+            <th onclick="sortTable(3)" class="text-center align-top">Марка авто</th>
+            <th onclick="sortTable(4)" class="text-center align-top">Номер авто</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for customer in customers %}
+            <tr>
+              <td class="pt-3-half">{{customer.id}}</td>
+              <td class="pt-3-half">{{' '.join((customer.last_name, customer.first_name, customer.middle_name))}}</td>
+              <td class="pt-3-half">{{customer.phone_number}}</td>
+              <td class="pt-3-half">
+                {% for car in customer.cars %}
+                  <p>{{car.brand}}</p>
+                {% endfor %}
+              </td>
+              <td class="pt-3-half">
+                {% for car in customer.cars %}
+                  <p>{{car.number}}</p>
+                {% endfor %}
+              </td>
+              {% if current_user.role == 'admin' %}
+                <td class="pt-3-half">
+                  <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#add_car_{{customer.id}}">
+                    <i class="fa fa-plus"></i>
+                  </a>
+                  <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_{{customer.id}}">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                  <a class="btn btn-danger btn-sm"  href="/customers/delete/{{customer.id}}">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
+              {% else %}
+                <td class="pt-3-half">
+                  <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add_{{customer.id}}">
+                    <i class="fa fa-plus"></i>
+                  </a>
+                </td>
+              {% endif %}
+            </tr>
+            <!-- EDIT MODAL -->
+            <div id="edit_{{customer.id}}" class="modal" tabindex="-1" role="dialog" >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Змінити дані про клієнта</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="POST" action="/customers/edit/{{customer.id}}">
+                      <p>
+                        <label for="title">ПІБ:</label>
+                        <input class="form-control" type="text" name="fullname" id="fullname" value="{{' '.join((customer.last_name, customer.first_name, customer.middle_name))}}" aria-label="Title">
+                      </p>
+                      <p>
+                        <label for="content">Номер телефону:</label>
+                        <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{customer.phone_number}}" aria-label="Author">
+                      </p>
+                      {% for i in range(customer.cars|length) %}
+                        <p>
+                          <label for="author">Марка авто:</label>
+                          <input class="form-control" type="text" name="car_brand_{{i}}" id="car_brand_{{i}}" value="{{customer.cars[i].brand}}" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="author">Номер авто:</label>
+                          <input class="form-control" type="text" name="car_number_{{i}}" id="car_number_{{i}}" value="{{customer.cars[i].number}}" aria-label="Author">
+                        </p>
+                      {% endfor %}
+                      <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Зберегти"></input>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ADD CAR MODAL -->
+            <div id="add_car_{{customer.id}}" class="modal" tabindex="-1" role="dialog" >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Додати авто</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="POST" action="/customers/add_car/{{customer.id}}">
+                      <p>
+                        <label for="author">Марка авто:</label>
+                        <input class="form-control" type="text" name="add_car_brand" id="add_car_brand" placeholder="Nissan" aria-label="Author">
+                      </p>
+                      <p>
+                        <label for="author">Номер авто:</label>
+                        <input class="form-control" type="text" name="add_car_number" id="add_car_number" placeholder="АН2012ВТ" aria-label="Author">
+                      </p>
+                      <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Зберегти"></input>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+                      </div>
+                    </form>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 {% endblock %}

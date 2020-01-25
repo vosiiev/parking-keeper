@@ -107,42 +107,50 @@ def journal():
         return render_template('journal.html', events=events)
 
 
-# @app.route('/customers', methods=['GET', 'POST'])
-# @login_required
-# def customers():
-#         if request.method == 'POST':
-#             fullname = (request.form['fullname']).split()
-#             last_name = fullname[0]
-#             first_name = fullname[1]
-#             middle_name = fullname[2]
-#             phone_number = request.form['phone_number']
-#             new_customer = Customer(
-#                     fullname=fullname,
-#                     phone_number=phone_number,
-#                 )
-#             db_session.add(new_customer)
-#             db_session.commit()
-#             return redirect(url_for('customers'))
-#         else:
-#             customers = db_session.query(Customer).all()
-#             return render_template('customers.html', customers=customers)
-
-
-@app.route('/client')
-def client():
-    return render_template('client.html')
+@app.route('/customers', methods=['GET', 'POST'])
+@login_required
+def customers():
+    if request.method == 'POST':
+        fullname = (request.form['fullname']).split()
+        last_name = fullname[0]
+        first_name = fullname[1]
+        middle_name = fullname[2]
+        phone_number = request.form['phone_number']
+        car_brand = request.form['car_brand']
+        car_number = request.form['car_number']
+        new_customer = Customer(
+                last_name=last_name,
+                first_name=first_name,
+                middle_name=middle_name,
+                phone_number=phone_number,
+            )
+        new_car = Car(
+                brand=car_brand,
+                number=car_number,
+                customer=new_customer,
+            )
+        db_session.add(new_customer)
+        db_session.add(new_car)
+        db_session.commit()
+        return redirect(url_for('customers'))
+    else:
+        customers = db_session.query(Customer).all()
+        return render_template('customers.html', customers=customers)
 
 
 @app.route('/journal/edit/<int:id>', methods=['GET', 'POST'])
 @login_required
-def edit(id):
+def edit_event(id):
     '''
     Retrieve data from journal event edit form and
     save it to the database.
     '''
     event = db_session.query(Event).get(id)
     if request.method == 'POST':
-        event.fullname = request.form['fullname']
+        fullname = (request.form['fullname']).split()
+        event.last_name = fullname[0]
+        event.first_name = fullname[1]
+        event.middle_name = fullname[2]
         event.car_brand = request.form['car_brand']
         event.car_number = request.form['car_number']
         event.phone_number = request.form['phone_number']
@@ -160,8 +168,57 @@ def edit(id):
         return render_template('journal.html', edit_event=event)
 
 
+
+
+@app.route('/customers/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_customer(id):
+    '''
+    Retrieve data from customer edit form and
+    save it to the database.
+    '''
+    customer = db_session.query(Customer).get(id)
+    if request.method == 'POST':
+        fullname = (request.form['fullname']).split()
+        customer.last_name = fullname[0]
+        customer.first_name = fullname[1]
+        customer.middle_name = fullname[2]
+        customer.phone_number = request.form['phone_number']
+        for i in range(len(customer.cars)):
+            customer.cars[i].brand = request.form[f'car_brand_{i}']
+            customer.cars[i].number = request.form[f'car_number_{i}']
+        db_session.commit()
+        return redirect(url_for('customers'))
+    else:
+        return render_template('customers.html', edit_customer=customer)
+
+
+@app.route('/customers/add_car/<int:id>', methods=['GET', 'POST'])
+@login_required
+def add_customer_car(id):
+    '''
+    Retrieve data from customer edit form and
+    save it to the database.
+    '''
+
+    if request.method == 'POST':
+        brand = request.form['add_car_brand']
+        number = request.form['add_car_number']
+        customer=db_session.query(Customer).get(id)
+        new_car = Car(
+                brand=brand,
+                number=number,
+                customer=customer,
+            )
+        db_session.commit()
+        return redirect(url_for('customers'))
+    else:
+        return render_template('customers.html')
+
+
 @app.route('/journal/delete/<int:id>')
-def delete(id):
+@login_required
+def delete_event(id):
     '''
     Delete journal event on button click.
     '''
@@ -169,6 +226,18 @@ def delete(id):
     db_session.delete(event)
     db_session.commit()
     return redirect(url_for('journal'))
+
+
+@app.route('/customers/delete/<int:id>')
+@login_required
+def delete_customer(id):
+    '''
+    Delete customer on button click.
+    '''
+    customer = db_session.query(Customer).get(id)
+    db_session.delete(customer)
+    db_session.commit()
+    return redirect(url_for('customers'))
 
 
 if __name__ == '__main__':

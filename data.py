@@ -61,7 +61,7 @@ class Customer(Base):
     first_name = Column(String(32))
     middle_name = Column(String(32))
     phone_number = Column(String(32))
-    car = relationship('Car', backref='customer')
+    cars = relationship('Car', backref='customer')
 
 
 class Car(Base):

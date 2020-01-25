@@ -4,7 +4,7 @@
 
   <!-- Modal scripts -->
   <script type="text/javascript">
-    $('#create_').on('shown.bs.modal', function() {
+    $('#create_event').on('shown.bs.modal', function() {
      $('#myInput').focus();
    });
   </script>
@@ -257,47 +257,47 @@
                       <form method="POST" action="/journal/edit/{{event.id}}">
                         <p>
                           <label for="title">ПІБ:</label>
-                          <input class="form-control" type="text" name="fullname" id="fullname" placeholder="SSSS" aria-label="Title">
+                          <input class="form-control" type="text" name="fullname" id="fullname" value="{{' '.join((event.last_name, event.first_name, event.middle_name))}}" aria-label="Title">
                         </p>
                         <p>
                           <label for="author">Марка авто:</label>
-                          <input class="form-control" type="text" name="car_brand" id="car_brand" placeholder="Nissan" aria-label="Author">
+                          <input class="form-control" type="text" name="car_brand" id="car_brand" value="{{event.car_brand}}" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">Номер авто:</label>
-                          <input class="form-control" type="text" name="car_number" id="car_number" placeholder="Nissan" aria-label="Author">
+                          <input class="form-control" type="text" name="car_number" id="car_number" value="{{event.car_number}}" aria-label="Author">
                         </p>
                         <p>
                           <label for="content">Номер телефону:</label>
-                          <input class="form-control" type="text" name="phone_number" id="phone_number" placeholder="0660280336" aria-label="Author">
+                          <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{event.phone_number}}" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">Дата заїзду:</label>
-                          <input value="21/06/2019" class="form-control" type="date" name="enter_date" id="enter_date" placeholder="05/12/2019" aria-label="Author">
+                          <input value="21/06/2019" class="form-control" type="date" name="enter_date" id="enter_date" value="{{event.enter_date}}" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">Час заїзду:</label>
-                          <input class="form-control" type="time" name="enter_time" id="enter_time" placeholder="12:36" aria-label="Author">
+                          <input class="form-control" type="time" name="enter_time" id="enter_time" value="{{event.enter_time}}" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">Сума поч.:</label>
-                          <input class="form-control" type="text" name="pre_payment" id="pre_payment" placeholder="2000" aria-label="Author">
+                          <input class="form-control" type="text" name="pre_payment" id="pre_payment" value="{{event.pre_payment}}" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">Дата виїзду:</label>
-                          <input class="form-control" type="date" name="departure_date" id="departure_date" placeholder="12/12/2020" aria-label="Author">
+                          <input class="form-control" type="date" name="departure_date" id="departure_date" value="{{event.departure_date}}" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">Час виїзду:</label>
-                          <input class="form-control" type="time" name="departure_time" id="departure_time" placeholder="20:30" aria-label="Author">
+                          <input class="form-control" type="time" name="departure_time" id="departure_time" value="{{event.departure_time}}" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">К-сть днів:</label>
-                          <input class="form-control" type="text" name="total_days" id="total_days" placeholder="5" aria-label="Author">
+                          <input class="form-control" type="text" name="total_days" id="total_days" value="{{event.total_days}}" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">Сума по факту:</label>
-                          <input class="form-control" type="text" name="after_payment" id="after_payment" placeholder="3200" aria-label="Author">
+                          <input class="form-control" type="text" name="after_payment" id="after_payment" value="{{event.after_payment}}" aria-label="Author">
                         </p>
                         <div class="modal-footer">
                           <input type="submit" class="btn btn-primary" value="Зберегти"></input>

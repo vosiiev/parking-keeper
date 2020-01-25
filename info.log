@@ -2826,3 +2826,1162 @@ INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 16:28:45] "GET /static/js/editable.js H
 INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 16:28:45] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
 INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 16:28:45] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
 INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 16:28:45] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:45:23] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:45:23] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:45:23] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:45:23] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:45:23] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:45:25] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:45:25] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:45:25] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:45:25] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:45:25] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:46:02] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:46:02] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:46:02] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:46:02] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:46:02] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:48:18] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:48:18] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:48:18] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 20:48:18] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:23] "GET /journal HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:23] "GET /journal HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:24] "GET /journal?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:24] "GET /journal?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:24] "GET /journal?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:24] "GET /journal?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:24] "GET /journal?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:24] "GET /journal?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:36] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:36] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:36] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:36] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:37] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:37] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:08:37] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:37] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:37] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:37] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:37] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:37] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:38] "GET /logout HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:38] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:38] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:38] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:38] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:38] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:39] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:39] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:39] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:root:admin logged in
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:42] "POST /login HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:42] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:42] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:42] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:44] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:44] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:44] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:45] "GET /customers HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:45] "GET /customers?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:45] "GET /customers?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:45] "GET /customers?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:46] "GET /customers?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:46] "GET /customers?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:09:46] "GET /customers?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `user`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `event`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:ROLLBACK
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `customer`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:ROLLBACK
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `car`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:ROLLBACK
+INFO:sqlalchemy.engine.base.Engine:
+CREATE TABLE event (
+	id INTEGER NOT NULL AUTO_INCREMENT, 
+	last_name VARCHAR(32), 
+	first_name VARCHAR(32), 
+	middle_name VARCHAR(32), 
+	car_brand VARCHAR(32), 
+	car_number VARCHAR(32), 
+	phone_number VARCHAR(32), 
+	enter_date DATE, 
+	enter_time TIME, 
+	pre_payment INTEGER, 
+	departure_date DATE, 
+	departure_time TIME, 
+	total_days INTEGER, 
+	after_payment INTEGER, 
+	PRIMARY KEY (id)
+)
+
+
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:
+CREATE TABLE customer (
+	id INTEGER NOT NULL AUTO_INCREMENT, 
+	last_name VARCHAR(32), 
+	first_name VARCHAR(32), 
+	middle_name VARCHAR(32), 
+	phone_number VARCHAR(32), 
+	PRIMARY KEY (id)
+)
+
+
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:
+CREATE TABLE car (
+	id INTEGER NOT NULL AUTO_INCREMENT, 
+	brand VARCHAR(32), 
+	number VARCHAR(32), 
+	customer_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(customer_id) REFERENCES customer (id)
+)
+
+
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:18:44] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:18:45] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:18:45] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:18:45] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:18:45] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:18:47] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:18:47] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:18:47] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:18:47] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:18:47] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO customer (last_name, first_name, middle_name, phone_number) VALUES (%(last_name)s, %(first_name)s, %(middle_name)s, %(phone_number)s)
+INFO:sqlalchemy.engine.base.Engine:{'last_name': 'Восієв', 'first_name': 'Руслан', 'middle_name': 'Зійодуллович', 'phone_number': '0660280336'}
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO car (brand, number, customer_id) VALUES (%(brand)s, %(number)s, %(customer_id)s)
+INFO:sqlalchemy.engine.base.Engine:{'brand': 'Honda', 'number': 'АІ2808ВА', 'customer_id': 1}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:19:06] "POST /customers HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:19:06] "GET /customers HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:19:06] "GET /customers?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:19:06] "GET /customers?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:19:06] "GET /customers?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:19:06] "GET /customers?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:19:06] "GET /customers?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:19:07] "GET /customers?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:08] "GET /customers HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:08] "GET /customers?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:08] "GET /customers?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:08] "GET /customers?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:09] "GET /customers?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:09] "GET /customers?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:09] "GET /customers?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:12] "GET /customers HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:12] "GET /customers?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:12] "GET /customers?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:12] "GET /customers?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:12] "GET /customers?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:12] "GET /customers?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:47] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:47] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:47] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:47] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:21:47] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO customer (last_name, first_name, middle_name, phone_number) VALUES (%(last_name)s, %(first_name)s, %(middle_name)s, %(phone_number)s)
+INFO:sqlalchemy.engine.base.Engine:{'last_name': 'Назаров', 'first_name': 'Денис', 'middle_name': 'Андрійович', 'phone_number': '0966609572'}
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO car (brand, number, customer_id) VALUES (%(brand)s, %(number)s, %(customer_id)s)
+INFO:sqlalchemy.engine.base.Engine:{'brand': 'Nissan', 'number': 'ВА1234ВР', 'customer_id': 2}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:33] "POST /customers HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:33] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:33] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:33] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:33] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:33] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer 
+WHERE customer.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:UPDATE car SET brand=%(brand)s WHERE car.id = %(car_id)s
+INFO:sqlalchemy.engine.base.Engine:{'brand': 'Mercedes', 'car_id': 2}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:46] "POST /customers/edit/2 HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:46] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:46] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:46] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:46] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:22:46] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:23:28] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:23:28] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:23:28] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:23:28] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:23:28] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:24:15] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:24:15] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:24:15] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:24:15] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:24:15] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:33:36] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:33:36] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:33:36] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:33:36] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:33:36] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:34:37] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:34:37] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:34:37] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:34:37] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:34:37] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:31] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:31] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:31] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:31] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:31] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:48] "POST /customers HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:48] "GET /customers?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:48] "GET /customers?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:48] "GET /customers?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:48] "GET /customers?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:48] "GET /customers?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:36:48] "GET /customers?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:36] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:36] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:36] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:36] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:36] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:43] "POST /customers/add_car/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:43] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:43] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:43] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:43] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:43] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:39:43] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer 
+WHERE customer.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:03] "POST /customers/add_car/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:03] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:03] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:03] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:03] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:04] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:04] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:07] "GET /customers/ HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:17] "GET /customers/ HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:19] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:19] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:19] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:19] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:19] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer 
+WHERE customer.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:24] "POST /customers/add_car/1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:24] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:24] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:24] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:25] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:25] "GET /customers/add_car/1?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:46] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:46] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:46] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:46] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:46] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer 
+WHERE customer.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO car (brand, number, customer_id) VALUES (%(brand)s, %(number)s, %(customer_id)s)
+INFO:sqlalchemy.engine.base.Engine:{'brand': 'Volkswagen', 'number': 'ВЕ2102ЕН', 'customer_id': 1}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:49] "POST /customers/add_car/1 HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:49] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:50] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:50] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:50] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:40:50] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer 
+WHERE customer.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:35] "GET /customers/delete/2 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:35] "GET /customers/delete/2?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:35] "GET /customers/delete/2?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:35] "GET /customers/delete/2?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:35] "GET /customers/delete/2?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:35] "GET /customers/delete/2?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:35] "GET /customers/delete/2?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:59] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:59] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:59] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:59] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:41:59] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer 
+WHERE customer.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:UPDATE car SET customer_id=%(customer_id)s WHERE car.id = %(car_id)s
+INFO:sqlalchemy.engine.base.Engine:{'customer_id': None, 'car_id': 2}
+INFO:sqlalchemy.engine.base.Engine:DELETE FROM customer WHERE customer.id = %(id)s
+INFO:sqlalchemy.engine.base.Engine:{'id': 2}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:01] "GET /customers/delete/2 HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:01] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:01] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:01] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:01] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:01] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:04] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:04] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:04] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:04] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:04] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:05] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:05] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:05] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:05] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:05] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:08] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:08] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:08] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:09] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:09] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:09] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:15] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:15] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:15] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:16] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:16] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:17] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:17] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:17] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:17] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:17] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:17] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:17] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:19] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:19] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:42:19] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:21] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:21] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:21] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:22] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:22] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:22] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:28] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:28] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:28] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:29] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:29] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:29] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:29] "GET /price HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:31] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:31] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:31] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:32] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:32] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:32] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:33] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:33] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:33] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:34] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:34] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:34] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:36] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:36] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:36] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:39] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:39] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:39] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:39] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:39] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:39] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:45] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:45] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:45] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:53] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:53] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:53] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:55] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:55] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:55] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:55] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:55] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:55] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:57] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:57] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:43:57] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:45:33] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:45:33] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Jan/2020 21:45:33] "GET /static/js/editable.js HTTP/1.1" 404 -
