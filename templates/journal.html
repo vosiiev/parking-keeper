@@ -114,6 +114,14 @@
     }
   </style>
 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
+  <script type="text/javascript" src="static/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready( function () {
+      $('#journal').DataTable();
+    } );
+  </script>
+
 {% endblock %}
 
 {% block body %}
@@ -191,7 +199,6 @@
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Журнал обліку</h3>
     <div class="card-body">
       <div id="table" class="table-editable">
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
         <table id="journal" class="table table-bordered table-responsive-md table-striped table-sm text-center">
           <caption>
             <div class="p-3">
@@ -203,11 +210,12 @@
               <th onclick="sortTable(0)" class="text-center align-top">№</th>
               <th onclick="sortTable(1)" class="text-center align-top">П.І.Б.</th>
               <th onclick="sortTable(2)" class="text-center align-top">Марка</th>
-              <th onclick="sortTable(4)" class="text-center align-top">Номер тел.</th>
-              <th onclick="sortTable(3)" class="text-center align-top">Номер авто</th>
-              <th onclick="sortTable(5)" class="text-center align-top">Дата заїзду</th>
-              <th onclick="sortTable(6)" class="text-center align-top">Час заїзду</th>
-              <th onclick="sortTable(7)" class="text-center align-top">Поч. сума</th>
+              <th onclick="sortTable(4)" class="text-center align-top">Номер авто</th>
+              <th onclick="sortTable(3)" class="text-center align-top">Номер тел.</th>
+              <th onclick="sortTable(5)" class="text-center align-top">Жетон</th>
+              <th onclick="sortTable(6)" class="text-center align-top">Дата заїзду</th>
+              <th onclick="sortTable(7)" class="text-center align-top">Час заїзду</th>
+              <th onclick="sortTable(8)" class="text-center align-top">Поч. сума</th>
               <th onclick="sortTable(9)" class="text-center align-top">Дата виїзду</th>
               <th onclick="sortTable(10)" class="text-center align-top">Час виїзду</th>
               <th onclick="sortTable(11)" class="text-center align-top">К-сть днів</th>
@@ -225,6 +233,7 @@
                 <td class="pt-3-half">{{event.car_brand}}</td>
                 <td class="pt-3-half">{{event.car_number}}</td>
                 <td class="pt-3-half">{{event.phone_number}}</td>
+                <td class="pt-3-half">{{event.token}}</td>
                 <td class="pt-3-half">{{event.enter_date}}</td>
                 <td class="pt-3-half">{{event.enter_time}}</td>
                 <td class="pt-3-half">{{event.pre_payment}}</td>
@@ -270,6 +279,10 @@
                         <p>
                           <label for="content">Номер телефону:</label>
                           <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{event.phone_number}}" aria-label="Author">
+                        </p>
+                        <p>
+                          <label for="content">Жетон:</label>
+                          <input class="form-control" type="text" name="token" id="token" value="{{event.token}}" aria-label="Author">
                         </p>
                         <p>
                           <label for="author">Дата заїзду:</label>

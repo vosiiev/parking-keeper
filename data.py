@@ -52,6 +52,7 @@ class Event(Base):
     departure_time = Column(Time)
     total_days = Column(Integer)
     after_payment = Column(Integer)
+    token = Column(Integer)
 
 
 class Customer(Base):

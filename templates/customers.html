@@ -30,6 +30,14 @@
       margin-bottom: 12px; /* Add some space below the input */
     }
   </style>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"/>
+  <script type="text/javascript" src="static/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready( function () {
+      $('#customers').DataTable();
+    } );
+  </script>
+
 {% endblock %}
 
 {% block body %}
@@ -81,7 +89,6 @@
   <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Список клієнтів</h3>
   <div class="card-body">
     <div id="table" class="table-editable">
-      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
       <table id="customers" class="table table-bordered table-responsive-md table-striped table-sm text-center">
         <caption>
           <div class="p-3">

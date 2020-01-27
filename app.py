@@ -77,6 +77,7 @@ def journal():
         car_brand = request.form['car_brand']
         car_number = request.form['car_number']
         phone_number = request.form['phone_number']
+        token = request.form['token']
         enter_date = datetime.strptime(request.form['enter_date'], '%Y-%m-%d')
         enter_time = datetime.strptime(request.form['enter_time'], '%H:%M')
         pre_payment = request.form['pre_payment']
@@ -91,6 +92,7 @@ def journal():
                 car_brand=car_brand,
                 car_number=car_number,
                 phone_number=phone_number,
+                token=token,
                 enter_date=enter_date.date(),
                 enter_time=enter_time.time(),
                 pre_payment=pre_payment,
@@ -154,6 +156,7 @@ def edit_event(id):
         event.car_brand = request.form['car_brand']
         event.car_number = request.form['car_number']
         event.phone_number = request.form['phone_number']
+        event.token = request.form['token']
         event.enter_date = request.form['enter_date']
         event.enter_time = request.form['enter_time']
         event.pre_payment = request.form['pre_payment']
