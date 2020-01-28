@@ -1,5 +1,5 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Date, Time, ForeignKey
+from sqlalchemy import Column, Integer, String, Date, Time, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 from flask_login import UserMixin
 
@@ -53,6 +53,8 @@ class Event(Base):
     total_days = Column(Integer)
     after_payment = Column(Integer)
     token = Column(Integer)
+    lot_type = Column(Integer)
+    closed = Column(Boolean)
 
 
 class Customer(Base):

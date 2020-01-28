@@ -38,6 +38,26 @@
     } );
   </script>
 
+  <script type="text/javascript">
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+
 {% endblock %}
 
 {% block body %}
@@ -53,22 +73,42 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="/customers">
+        <form class="needs-validation" method="POST" action="/customers" novalidate>
           <p>
-            <label for="title">ПІБ:</label>
-            <input class="form-control" type="text" name="fullname" id="fullname" placeholder="Петренко Олексій Іванович" aria-label="Title">
+            <div>
+              <label for="fullname">ПІБ</label>
+              <input class="form-control" pattern="^[А-ЯІЮЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюєії]+" type="text" name="fullname" id="fullname" placeholder="Петренко Олексій Іванович" required>
+              <div class="invalid-feedback">
+                ПІБ вказано не вірно
+              </div>
+            </div>
           </p>
           <p>
-            <label for="content">Номер телефону:</label>
-            <input class="form-control" type="text" name="phone_number" id="phone_number" placeholder="0660280336" aria-label="Author">
+            <div>
+              <label for="phone_number">Номер телефону</label>
+              <input class="form-control" pattern="0[0-9]{9}" type="text" name="phone_number" id="phone_number" placeholder="0660280336" required>
+              <div class="invalid-feedback">
+                Номер телефону вказано не вірно
+              </div>
+            </div>
           </p>
           <p>
-            <label for="author">Марка авто:</label>
-            <input class="form-control" type="text" name="car_brand" id="car_brand" placeholder="Nissan" aria-label="Author">
+            <div>
+              <label for="car_brand">Марка авто</label>
+              <input class="form-control" maxlength="20" type="text" name="car_brand" id="car_brand" placeholder="Nissan" required>
+              <div class="invalid-feedback">
+                Марку авто вказано не вірно
+              </div>
+            </div>
           </p>
           <p>
-            <label for="author">Номер авто:</label>
-            <input class="form-control" type="text" name="car_number" id="car_number" placeholder="АН2012ВТ" aria-label="Author">
+            <div>
+              <label for="car_number">Номер авто</label>
+              <input class="form-control" pattern="[А-ЯІЮЄЇ]{2}[\d]{4}[А-ЯІЮЄЇ]{2}" type="text" name="car_number" id="car_number" placeholder="АН2012ВТ" required>
+              <div class="invalid-feedback">
+                Номер авто вказано не вірно
+              </div>
+            </div>
           </p>
           <div class="modal-footer">
             <input type="submit" class="btn btn-primary" value="Зберегти"></input>
@@ -152,23 +192,43 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form method="POST" action="/customers/edit/{{customer.id}}">
+                    <form class="needs-validation" method="POST" action="/customers/edit/{{customer.id}}" novalidate>
                       <p>
-                        <label for="title">ПІБ:</label>
-                        <input class="form-control" type="text" name="fullname" id="fullname" value="{{' '.join((customer.last_name, customer.first_name, customer.middle_name))}}" aria-label="Title">
+                        <div>
+                          <label for="title">ПІБ:</label>
+                          <input class="form-control" pattern="^[А-ЯІЮЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюєії]+" type="text" name="fullname" id="fullname" value="{{' '.join((customer.last_name, customer.first_name, customer.middle_name))}}" required>
+                          <div class="invalid-feedback">
+                            ПІБ вказано не вірно
+                          </div>
+                        </div>
                       </p>
                       <p>
-                        <label for="content">Номер телефону:</label>
-                        <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{customer.phone_number}}" aria-label="Author">
+                        <div>
+                          <label for="content">Номер телефону:</label>
+                          <input class="form-control" pattern="0[0-9]{9}" type="text" name="phone_number" id="phone_number" value="{{customer.phone_number}}" required>
+                          <div class="invalid-feedback">
+                            Номер телефону вказано не вірно
+                          </div>
+                        </div>
                       </p>
                       {% for i in range(customer.cars|length) %}
                         <p>
-                          <label for="author">Марка авто:</label>
-                          <input class="form-control" type="text" name="car_brand_{{i}}" id="car_brand_{{i}}" value="{{customer.cars[i].brand}}" aria-label="Author">
+                          <div>
+                            <label for="author">Марка авто:</label>
+                            <input class="form-control" maxlength="20" type="text" name="car_brand_{{i}}" id="car_brand_{{i}}" value="{{customer.cars[i].brand}}" required>
+                            <div class="invalid-feedback">
+                              Марку авто вказано не вірно
+                            </div>
+                          </div>
                         </p>
                         <p>
-                          <label for="author">Номер авто:</label>
-                          <input class="form-control" type="text" name="car_number_{{i}}" id="car_number_{{i}}" value="{{customer.cars[i].number}}" aria-label="Author">
+                          <div>
+                            <label for="author">Номер авто:</label>
+                            <input class="form-control" pattern="[А-ЯІЮЄЇ]{2}[\d]{4}[А-ЯІЮЄЇ]{2}" type="text" name="car_number_{{i}}" id="car_number_{{i}}" value="{{customer.cars[i].number}}" required>
+                            <div class="invalid-feedback">
+                              Номер авто вказано не вірно
+                            </div>
+                          </div>
                         </p>
                       {% endfor %}
                       <div class="modal-footer">
@@ -191,14 +251,20 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form method="POST" action="/customers/add_car/{{customer.id}}">
+                    <form class="needs-validation" method="POST" action="/customers/add_car/{{customer.id}}" novalidate>
                       <p>
-                        <label for="author">Марка авто:</label>
-                        <input class="form-control" type="text" name="add_car_brand" id="add_car_brand" placeholder="Nissan" aria-label="Author">
+                          <label for="add_car_brand">Марка авто:</label>
+                          <input class="form-control" maxlength="20" type="text" name="add_car_brand" id="add_car_brand" placeholder="Nissan" required>
+                          <div class="invalid-feedback">
+                            Марку авто вказано не вірно
+                          </div>
                       </p>
                       <p>
-                        <label for="author">Номер авто:</label>
-                        <input class="form-control" type="text" name="add_car_number" id="add_car_number" placeholder="АН2012ВТ" aria-label="Author">
+                          <label for="add_car_number">Номер авто:</label>
+                          <input class="form-control" pattern="[А-ЯІЮЄЇ]{2}[\d]{4}[А-ЯІЮЄЇ]{2}" type="text" name="add_car_number" id="add_car_number" placeholder="АН2012ВТ" required>
+                          <div class="invalid-feedback">
+                            Номер авто вказано не вірно
+                          </div>
                       </p>
                       <div class="modal-footer">
                         <input type="submit" class="btn btn-primary" value="Зберегти"></input>

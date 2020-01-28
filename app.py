@@ -8,7 +8,7 @@ from flask_login import LoginManager, login_required, \
 from security import hash_password, verify_password
 import logging
 from functools import wraps
-from datetime import datetime
+from datetime import datetime, date, time
 
 app = Flask(__name__)
 app.secret_key = b'\xec\x18\xd6\x08y\xcb\xa2\r^\xdb\xc4\xf9U\x0fj"'
@@ -68,45 +68,96 @@ def journal():
     If POST: get data from journal page form
     and save it to database.
     If GET: retrieve data from database and render the journal page.
+
+    Lot types:
+    1. Відкрита зона (2.5х5)
+    2. Відкрита зона (>5)
+    3. Відкрита зона (парне одне місце)
+    4. Відкрита зона (парне два місця)
+    5. Бокс
+    6. Бокс (парний одне місце)
+    7. Бокс (парний два місця)
+    8. Навіс
     '''
     if request.method == 'POST':
-        fullname = (request.form['fullname']).split()
-        last_name = fullname[0]
-        first_name = fullname[1]
-        middle_name = fullname[2]
-        car_brand = request.form['car_brand']
-        car_number = request.form['car_number']
-        phone_number = request.form['phone_number']
-        token = request.form['token']
-        enter_date = datetime.strptime(request.form['enter_date'], '%Y-%m-%d')
-        enter_time = datetime.strptime(request.form['enter_time'], '%H:%M')
-        pre_payment = request.form['pre_payment']
-        departure_date = datetime.strptime(request.form['departure_date'], '%Y-%m-%d')
-        departure_time = datetime.strptime(request.form['departure_time'], '%H:%M')
-        total_days = request.form['total_days']
-        after_payment = request.form['after_payment']
-        new_event = Event(
-                last_name=last_name,
-                first_name=first_name,
-                middle_name=middle_name,
-                car_brand=car_brand,
-                car_number=car_number,
-                phone_number=phone_number,
-                token=token,
-                enter_date=enter_date.date(),
-                enter_time=enter_time.time(),
-                pre_payment=pre_payment,
-                departure_date=departure_date.date(),
-                departure_time=departure_time.time(),
-                total_days=total_days,
-                after_payment=after_payment,
-            )
-        db_session.add(new_event)
-        db_session.commit()
+        # fullname = (request.form['fullname']).split()
+        # last_name = fullname[0]
+        # first_name = fullname[1]
+        # middle_name = fullname[2]
+        # car_brand = request.form['car_brand']
+        # car_number = request.form['car_number']
+        # phone_number = request.form['phone_number']
+        # token = request.form['token']
+        # enter_date = datetime.strptime(request.form['enter_date'], '%Y-%m-%d')
+        # enter_time = datetime.strptime(request.form['enter_time'], '%H:%M')
+        # pre_payment = request.form['pre_payment']
+        # departure_date = datetime.strptime(request.form['departure_date'], '%Y-%m-%d')
+        # departure_time = datetime.strptime(request.form['departure_time'], '%H:%M')
+        # total_days = request.form['total_days']
+        # after_payment = request.form['after_payment']
+        try:
+            customer_id = int(request.form['customer_id'])
+            car_number = request.form['car_number']
+            num_days = int(request.form['num_days'])
+            token = int(request.form['token'])
+            lot_type = int(request.form['lot_type'])
+        except ValueError as e:
+            return render_template('login.html', error=e)
+
+        customer = db_session.query(Customer).filter_by(id=customer_id).one()
+        car = db_session.query(Car).filter_by(number=car_number).one()
+
+        now = datetime.now()
+        enter_date = now.strftime('%Y-%m-%d')
+        enter_time = now.strftime('%H:%M:%S')
+
+        pre_payment = calculate_payment(lot_type, num_days)
+
+        try:
+            new_event = Event(
+                    last_name=customer.last_name,
+                    first_name=customer.first_name,
+                    middle_name=customer.middle_name,
+                    car_brand=car.brand,
+                    car_number=car.number,
+                    phone_number=customer.phone_number,
+                    token=token,
+                    enter_date=enter_date,
+                    enter_time=enter_time,
+                    pre_payment=pre_payment,
+                    lot_type=lot_type,
+                    # departure_date=departure_date.date(),
+                    # departure_time=departure_time.time(),
+                    # total_days=total_days,
+                    # after_payment=after_payment,
+                )
+            db_session.add(new_event)
+            db_session.commit()
+        except Exception as e:
+            return render_template('journal.html', error=e)
         return redirect(url_for('journal'))
     else:
         events = db_session.query(Event).all()
         return render_template('journal.html', events=events)
+
+
+def calculate_payment(lot_type, num_days):
+    if lot_type == 1:
+        return 30*num_days
+    elif lot_type == 2:
+        return 50*num_days
+    elif lot_type == 3:
+        return 30*num_days
+    elif lot_type == 4:
+        return 60*num_days
+    elif lot_type == 5:
+        return 80*num_days
+    elif lot_type == 6:
+        return 80*num_days
+    elif lot_type == 7:
+        return 160*num_days
+    elif lot_type == 8:
+        return 60*num_days
 
 
 @app.route('/customers', methods=['GET', 'POST'])
@@ -149,27 +200,49 @@ def edit_event(id):
     '''
     event = db_session.query(Event).get(id)
     if request.method == 'POST':
-        fullname = (request.form['fullname']).split()
-        event.last_name = fullname[0]
-        event.first_name = fullname[1]
-        event.middle_name = fullname[2]
-        event.car_brand = request.form['car_brand']
-        event.car_number = request.form['car_number']
-        event.phone_number = request.form['phone_number']
-        event.token = request.form['token']
-        event.enter_date = request.form['enter_date']
-        event.enter_time = request.form['enter_time']
-        event.pre_payment = request.form['pre_payment']
-        event.token = request.form['token']
-        event.departure_date = request.form['departure_date']
-        event.departure_time = request.form['departure_time']
-        event.total_days = request.form['total_days']
-        event.after_payment = request.form['after_payment']
+        try:
+            fullname = (request.form['fullname']).split()
+            event.last_name = fullname[0]
+            event.first_name = fullname[1]
+            event.middle_name = fullname[2]
+            event.car_brand = request.form['car_brand']
+            event.car_number = request.form['car_number']
+            event.phone_number = request.form['phone_number']
+            event.token = request.form['token']
+            event.enter_date = request.form['enter_date']
+            event.enter_time = request.form['enter_time']
+            event.pre_payment = request.form['pre_payment']
+            event.token = request.form['token']
+            event.departure_date = request.form['departure_date']
+            event.departure_time = request.form['departure_time']
+            event.total_days = request.form['total_days']
+            event.after_payment = request.form['after_payment']
+        except Exception as e:
+            return render_template('journal.html', error=e)
         db_session.commit()
         return redirect(url_for('journal'))
     else:
         return render_template('journal.html', edit_event=event)
 
+
+@app.route('/journal/close_event/<int:id>')
+@login_required
+def close_event(id):
+    event = db_session.query(Event).get(id)
+    now = datetime.now()
+    departure_date = now.strftime('%Y-%m-%d')
+    departure_time = now.strftime('%H:%M:%S')
+    delta = date.today() - event.enter_date
+    total_days = delta.days
+    after_payment = calculate_payment(event.lot_type, total_days)
+
+    event.departure_date = departure_date
+    event.departure_time = departure_time
+    event.total_days = total_days
+    event.after_payment = after_payment
+    event.closed = True
+    db_session.commit()
+    return redirect(url_for('journal'))
 
 
 

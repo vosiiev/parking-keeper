@@ -118,8 +118,28 @@
   <script type="text/javascript" src="static/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript">
     $(document).ready( function () {
-      $('#journal').DataTable();
+      $('#journal_table').DataTable();
     } );
+  </script>
+
+  <script type="text/javascript">
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
   </script>
 
 {% endblock %}
@@ -137,50 +157,57 @@
           </button>
         </div>
         <div class="modal-body">
-          <form method="POST" action="/journal">
+          <form class="needs-validation" method="POST" action="/journal" novalidate>
             <p>
-              <label for="title">ПІБ:</label>
-              <input class="form-control" type="text" name="fullname" id="fullname" placeholder="Петренко Олексій Іванович" aria-label="Title">
+              <label for="customer_id">Номер клієнта</label>
+              <input class="form-control" min="1" max="1000" type="number" name="customer_id" id="customer_id" placeholder="52" required>
+            </p>
+            <div class="valid-feedback">
+              Добре!
+            </div>
+            <p>
+              <div>
+                <label for="car_number">Номер авто</label>
+                <input class="form-control" pattern="[А-ЯІЮЄЇ]{2}[\d]{4}[А-ЯІЮЄЇ]{2}" type="text" name="car_number" id="car_number" placeholder="АН2012ВТ" required>
+                <div class="invalid-feedback">
+                  Перевірте правильність номеру
+                </div>
+              </div>
             </p>
             <p>
-              <label for="author">Марка авто:</label>
-              <input class="form-control" type="text" name="car_brand" id="car_brand" placeholder="Nissan" aria-label="Author">
+              <div class="form-group">
+                <label for="lot_type">Тип місця</label>
+                <select id="lot_type" name="lot_type" class="custom-select" required>
+                  <option value="">Оберіть зі списку</option>
+                  <option value="1">Відкрита зона (2.5х5)</option>
+                  <option value="2">Відкрита зона (>5)</option>
+                  <option value="3">Відкрита зона (парне одне місце)</option>
+                  <option value="4">Відкрита зона (парне два місця)</option>
+                  <option value="5">Бокс</option>
+                  <option value="6">Бокс (парний одне місце)</option>
+                  <option value="7">Бокс (парний два місця)</option>
+                  <option value="8">Навіс</option>
+                </select>
+                <div class="invalid-feedback">Оберіть, будь ласка, зі списку</div>
+              </div>
             </p>
             <p>
-              <label for="author">Номер авто:</label>
-              <input class="form-control" type="text" name="car_number" id="car_number" placeholder="АН2012ВТ" aria-label="Author">
+              <div>
+                <label for="num_days">Кількість днів</label>
+                <input class="form-control" min="1" max="1000" type="number" name="num_days" id="num_days" placeholder="10" required>
+                <div class="invalid-feedback">
+                  Кількість днів вказана невірно
+                </div>
+              </div>
             </p>
             <p>
-              <label for="content">Номер телефону:</label>
-              <input class="form-control" type="text" name="phone_number" id="phone_number" placeholder="0660280336" aria-label="Author">
-            </p>
-            <p>
-              <label for="author">Дата заїзду:</label>
-              <input class="form-control" type="date" value="01/01/2020" name="enter_date" id="enter_date" placeholder="05/12/2019" aria-label="Author">
-            </p>
-            <p>
-              <label for="author">Час заїзду:</label>
-              <input class="form-control" type="time" name="enter_time" id="enter_time" placeholder="12:36" aria-label="Author">
-            </p>
-            <p>
-              <label for="author">Сума поч.:</label>
-              <input class="form-control" type="text" name="pre_payment" id="pre_payment" placeholder="2000" aria-label="Author">
-            </p>
-            <p>
-              <label for="author">Дата виїзду:</label>
-              <input class="form-control" type="date" value="01/01/2020" name="departure_date" id="departure_date" placeholder="12/12/2020" aria-label="Author">
-            </p>
-            <p>
-              <label for="author">Час виїзду:</label>
-              <input class="form-control" type="time" name="departure_time" id="departure_time" placeholder="20:30" aria-label="Author">
-            </p>
-            <p>
-              <label for="author">К-сть днів:</label>
-              <input class="form-control" type="text" name="total_days" id="total_days" placeholder="5" aria-label="Author">
-            </p>
-            <p>
-              <label for="author">Сума по факту:</label>
-              <input class="form-control" type="text" name="after_payment" id="after_payment" placeholder="3200" aria-label="Author">
+              <div>
+                <label for="token">Жетон</label>
+                <input class="form-control" min="1" max="1000" type="number" name="token" id="token" placeholder="55" required>
+                <div class="invalid-feedback">
+                  Перевірте правильність жетону
+                </div>
+              </div>
             </p>
             <div class="modal-footer">
               <input type="submit" class="btn btn-primary" value="Зберегти"></input>
@@ -199,7 +226,7 @@
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Журнал обліку</h3>
     <div class="card-body">
       <div id="table" class="table-editable">
-        <table id="journal" class="table table-bordered table-responsive-md table-striped table-sm text-center">
+        <table id="journal_table" class="table table-bordered table-responsive-md table-striped table-sm text-center">
           <caption>
             <div class="p-3">
               <button class="btn btn-success float-left" data-toggle="modal" data-target="#create_event">+ Створити запис</button>
@@ -220,9 +247,7 @@
               <th onclick="sortTable(10)" class="text-center align-top">Час виїзду</th>
               <th onclick="sortTable(11)" class="text-center align-top">К-сть днів</th>
               <th onclick="sortTable(12)" class="text-center align-top">Сума по факту</th>
-              {% if current_user.role == 'admin' %}
-              <th></th>
-              {% endif %}
+              <th onclick="sortTable(13)" class="text-center align-top">Закрити запис</th>
             </tr>
           </thead>
           <tbody>
@@ -241,16 +266,22 @@
                 <td class="pt-3-half">{{event.departure_time}}</td>
                 <td class="pt-3-half">{{event.total_days}}</td>
                 <td class="pt-3-half">{{event.after_payment}}</td>
-                {% if current_user.role == 'admin' %}
                 <td class="pt-3-half">
-                  <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_{{event.id}}">
-                    <i class="fa fa-pencil"></i>
-                  </a>
-                  <a class="btn btn-danger btn-sm"  href="/journal/delete/{{event.id}}">
-                    <i class="fa fa-trash-o"></i>
-                  </a>
-                </td>
-                {% endif %}
+                  {% if current_user.role == 'admin' %}
+                    <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_{{event.id}}">
+                      <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class="btn btn-danger btn-sm"  href="/journal/delete/{{event.id}}">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                  {% endif %}
+                  {% if not event.closed %}
+                    <a class="btn btn-success btn-sm" href="/journal/close_event/{{event.id}}">
+                      <i class="fa fa-check"></i>
+                    </a>
+                  {% endif %}
+
+
               </tr>
               <!-- EDIT MODAL -->
               <div id="edit_{{event.id}}" class="modal" tabindex="-1" role="dialog" >
@@ -263,54 +294,54 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form method="POST" action="/journal/edit/{{event.id}}">
+                      <form class="needs-validation" method="POST" action="/journal/edit/{{event.id}}">
                         <p>
-                          <label for="title">ПІБ:</label>
-                          <input class="form-control" type="text" name="fullname" id="fullname" value="{{' '.join((event.last_name, event.first_name, event.middle_name))}}" aria-label="Title">
+                          <label for="fullname">ПІБ</label>
+                          <input class="form-control" pattern="^[А-ЯІЮЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюєії]+" type="text" name="fullname" id="fullname" value="{{' '.join((event.last_name, event.first_name, event.middle_name))}}">
                         </p>
                         <p>
-                          <label for="author">Марка авто:</label>
-                          <input class="form-control" type="text" name="car_brand" id="car_brand" value="{{event.car_brand}}" aria-label="Author">
+                          <label for="car_brand">Марка авто</label>
+                          <input class="form-control" maxlength="20" type="text" name="car_brand" id="car_brand" value="{{event.car_brand}}">
                         </p>
                         <p>
-                          <label for="author">Номер авто:</label>
-                          <input class="form-control" type="text" name="car_number" id="car_number" value="{{event.car_number}}" aria-label="Author">
+                          <label for="car_number">Номер авто</label>
+                          <input class="form-control" pattern="[А-ЯІЮЄЇ]{2}[\d]{4}[А-ЯІЮЄЇ]{2}" type="text" name="car_number" id="car_number" value="{{event.car_number}}">
                         </p>
                         <p>
-                          <label for="content">Номер телефону:</label>
-                          <input class="form-control" type="text" name="phone_number" id="phone_number" value="{{event.phone_number}}" aria-label="Author">
+                          <label for="phone_number">Номер телефону</label>
+                          <input class="form-control" pattern="0[0-9]{9}" type="text" name="phone_number" id="phone_number" value="{{event.phone_number}}">
                         </p>
                         <p>
-                          <label for="content">Жетон:</label>
-                          <input class="form-control" type="text" name="token" id="token" value="{{event.token}}" aria-label="Author">
+                          <label for="token">Жетон</label>
+                          <input class="form-control" min="1" max="1000" type="number" name="token" id="token" value="{{event.token}}">
                         </p>
                         <p>
-                          <label for="author">Дата заїзду:</label>
-                          <input value="21/06/2019" class="form-control" type="date" name="enter_date" id="enter_date" value="{{event.enter_date}}" aria-label="Author">
+                          <label for="enter_date">Дата заїзду</label>
+                          <input value="21/06/2019" class="form-control" type="date" name="enter_date" id="enter_date" value="{{event.enter_date}}">
                         </p>
                         <p>
-                          <label for="author">Час заїзду:</label>
-                          <input class="form-control" type="time" name="enter_time" id="enter_time" value="{{event.enter_time}}" aria-label="Author">
+                          <label for="enter_time">Час заїзду</label>
+                          <input class="form-control" type="time" name="enter_time" id="enter_time" value="{{event.enter_time}}">
                         </p>
                         <p>
-                          <label for="author">Сума поч.:</label>
-                          <input class="form-control" type="text" name="pre_payment" id="pre_payment" value="{{event.pre_payment}}" aria-label="Author">
+                          <label for="pre_payment">Сума поч.</label>
+                          <input class="form-control" type="number" name="pre_payment" id="pre_payment" value="{{event.pre_payment}}">
                         </p>
                         <p>
-                          <label for="author">Дата виїзду:</label>
-                          <input class="form-control" type="date" name="departure_date" id="departure_date" value="{{event.departure_date}}" aria-label="Author">
+                          <label for="departure_date">Дата виїзду</label>
+                          <input class="form-control" type="date" name="departure_date" id="departure_date" value="{{event.departure_date}}">
                         </p>
                         <p>
-                          <label for="author">Час виїзду:</label>
-                          <input class="form-control" type="time" name="departure_time" id="departure_time" value="{{event.departure_time}}" aria-label="Author">
+                          <label for="departure_time">Час виїзду</label>
+                          <input class="form-control" type="time" name="departure_time" id="departure_time" value="{{event.departure_time}}">
                         </p>
                         <p>
-                          <label for="author">К-сть днів:</label>
-                          <input class="form-control" type="text" name="total_days" id="total_days" value="{{event.total_days}}" aria-label="Author">
+                          <label for="total_days">К-сть днів</label>
+                          <input class="form-control" min="1" max="1000" type="number" name="total_days" id="total_days" value="{{event.total_days}}">
                         </p>
                         <p>
-                          <label for="author">Сума по факту:</label>
-                          <input class="form-control" type="text" name="after_payment" id="after_payment" value="{{event.after_payment}}" aria-label="Author">
+                          <label for="after_payment">Сума по факту</label>
+                          <input class="form-control" min="30" type="number" name="after_payment" id="after_payment" value="{{event.after_payment}}">
                         </p>
                         <div class="modal-footer">
                           <input type="submit" class="btn btn-primary" value="Зберегти"></input>
