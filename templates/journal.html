@@ -160,7 +160,7 @@
           <form class="needs-validation" method="POST" action="/journal" novalidate>
             <p>
               <label for="customer_id">Номер клієнта</label>
-              <input class="form-control" min="1" max="1000" type="number" name="customer_id" id="customer_id" placeholder="52" required>
+              <input class="form-control" min="1" max="10000" type="number" name="customer_id" id="customer_id" placeholder="52" required>
             </p>
             <div class="valid-feedback">
               Добре!
@@ -168,7 +168,7 @@
             <p>
               <div>
                 <label for="car_number">Номер авто</label>
-                <input class="form-control" pattern="[А-ЯІЮЄЇ]{2}[\d]{4}[А-ЯІЮЄЇ]{2}" type="text" name="car_number" id="car_number" placeholder="АН2012ВТ" required>
+                <input class="form-control" pattern="[А-ЯІЮЄЇA-Z0-9]{4,12}" type="text" name="car_number" id="car_number" placeholder="АН2012ВТ" required>
                 <div class="invalid-feedback">
                   Перевірте правильність номеру
                 </div>
@@ -355,18 +355,17 @@
               <th onclick="sortTable(0)" class="text-center align-top">№</th>
               <th onclick="sortTable(1)" class="text-center align-top">П.І.Б.</th>
               <th onclick="sortTable(2)" class="text-center align-top">Марка</th>
-              <th onclick="sortTable(4)" class="text-center align-top">Номер авто</th>
-              <!-- <th onclick="sortTable(3)" class="text-center align-top">Номер тел.</th> -->
-              <th onclick="sortTable(5)" class="text-center align-top">Жетон</th>
-              <th onclick="sortTable(6)" class="text-center align-top">Дата заїзду</th>
-              <th onclick="sortTable(7)" class="text-center align-top">Час заїзду</th>
-              <th onclick="sortTable(8)" class="text-center align-top">Поч. сума</th>
-              <th onclick="sortTable(9)" class="text-center align-top">Дата виїзду</th>
-              <th onclick="sortTable(10)" class="text-center align-top">Час виїзду</th>
-              <th onclick="sortTable(11)" class="text-center align-top">К-сть днів</th>
-              <th onclick="sortTable(12)" class="text-center align-top">Сума по факту</th>
-              <th onclick="sortTable(13)" class="text-center align-top">Деталі</th>
-              <th onclick="sortTable(14)" class="text-center align-top">Предчек/чек</th>
+              <th onclick="sortTable(3)" class="text-center align-top">Номер авто</th>
+              <th onclick="sortTable(4)" class="text-center align-top">Жетон</th>
+              <th onclick="sortTable(5)" class="text-center align-top">Дата заїзду</th>
+              <th onclick="sortTable(6)" class="text-center align-top">Час заїзду</th>
+              <th onclick="sortTable(7)" class="text-center align-top">Поч. сума</th>
+              <th onclick="sortTable(10)" class="text-center align-top">К-сть днів</th>
+              <th onclick="sortTable(8)" class="text-center align-top">Дата виїзду</th>
+              <th onclick="sortTable(9)" class="text-center align-top">Час виїзду</th>
+              <th onclick="sortTable(11)" class="text-center align-top">Сума по факту</th>
+              <th onclick="sortTable(12)" class="text-center align-top">Деталі</th>
+              <th onclick="sortTable(13)" class="text-center align-top">Предчек/чек</th>
             </tr>
           </thead>
           <tbody>
@@ -376,15 +375,20 @@
                 <td class="pt-3-half">{{' '.join((event.last_name, event.first_name, event.middle_name))}}</td>
                 <td class="pt-3-half">{{event.car_brand}}</td>
                 <td class="pt-3-half">{{event.car_number}}</td>
-                <!-- <td class="pt-3-half">{{event.phone_number}}</td> -->
                 <td class="pt-3-half">{{event.token}}</td>
                 <td class="pt-3-half">{{event.enter_date}}</td>
-                <td class="pt-3-half">{{':'.join((event.enter_time.hour|string, event.enter_time.minute|string))}}</td>
+                <td class="pt-3-half">{{event.enter_time.strftime('%H:%M')}}</td>
                 <td class="pt-3-half">{{event.pre_payment}}</td>
-                <td class="pt-3-half">{{event.departure_date}}</td>
-                <td class="pt-3-half">{{':'.join((event.departure_time.hour|string, event.departure_time.minute|string))}}</td>
                 <td class="pt-3-half">{{event.total_days}}</td>
-                <td class="pt-3-half">{{event.after_payment}}</td>
+                {% if event.departure_date is not none %}
+                  <td class="pt-3-half">{{event.departure_date}}</td>
+                  <td class="pt-3-half">{{event.departure_time.strftime('%H:%M')}}</td>
+                  <td class="pt-3-half">{{event.after_payment}}</td>
+                {% else %}
+                  <td class="pt-3-half">-</td>
+                  <td class="pt-3-half">-</td>
+                  <td class="pt-3-half">-</td>
+                {% endif %}
                 <td class="pt-3-half">
                   <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#details_{{event.id}}">Показати</button>
                 </td>
@@ -427,7 +431,7 @@
                       <form class="needs-validation" method="POST" action="/journal/edit/{{event.id}}">
                         <p>
                           <label for="fullname">ПІБ</label>
-                          <input class="form-control" pattern="^[А-ЯІЮЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюєії]+" type="text" name="fullname" id="fullname" value="{{' '.join((event.last_name, event.first_name, event.middle_name))}}">
+                          <input class="form-control" pattern="^[А-ЯІЮЄЇA-Z]{1}[а-яюієїa-z]+\s[А-ЯЮІЄЇA-Z]{1}[а-яюієїa-z]+\s[А-ЯЮІЄЇA-Z]{1}[а-яюєіїa-z]+" type="text" name="fullname" id="fullname" value="{{' '.join((event.last_name, event.first_name, event.middle_name))}}">
                         </p>
                         <p>
                           <label for="car_brand">Марка авто</label>
@@ -435,11 +439,11 @@
                         </p>
                         <p>
                           <label for="car_number">Номер авто</label>
-                          <input class="form-control" pattern="[А-ЯІЮЄЇ]{2}[\d]{4}[А-ЯІЮЄЇ]{2}" type="text" name="car_number" id="car_number" value="{{event.car_number}}">
+                          <input class="form-control" pattern="[А-ЯІЮЄЇA-Z0-9]{4,12}" type="text" name="car_number" id="car_number" value="{{event.car_number}}">
                         </p>
                         <p>
                           <label for="phone_number">Номер телефону</label>
-                          <input class="form-control" pattern="0[0-9]{9}" type="text" name="phone_number" id="phone_number" value="{{event.phone_number}}">
+                          <input class="form-control" pattern="\+[0-9]{12}" type="text" name="phone_number" id="phone_number" value="{{event.phone_number}}">
                         </p>
                         <p>
                           <label for="token">Жетон</label>
@@ -506,85 +510,89 @@
                         {% endif %}
                       </p>
                       <p>Пошкодження:</p>
+                      <ul>
+
                       {% for dmg in damage %}
                         {% if event == dmg.event %}
                           {% if dmg.head_lights %}
-                            <p>Передні фари</p>
+                            <li>Передні фари</li>
                           {% endif %}
                           {% if dmg.tail_lights %}
-                            <p>Задні фари</p>
+                            <li>Задні фари</li>
                           {% endif %}
                           {% if dmg.front_bumper %}
-                            <p>Передній бампер</p>
+                            <li>Передній бампер</li>
                           {% endif %}
                           {% if dmg.rear_bumper %}
-                            <p>Задній бампер</p>
+                            <li>Задній бампер</li>
                           {% endif %}
                           {% if dmg.hood %}
-                            <p>Капот</p>
+                            <li>Капот</li>
                           {% endif %}
                           {% if dmg.trunk %}
-                            <p>Багажник</p>
+                            <li>Багажник</li>
                           {% endif %}
                           {% if dmg.left_front_wheel %}
-                            <p>Ліве переднє колесо</p>
+                            <li>Ліве переднє колесо</li>
                           {% endif %}
                           {% if dmg.right_front_wheel %}
-                            <p>Праве переднє колесо</p>
+                            <li>Праве переднє колесо</li>
                           {% endif %}
                           {% if dmg.left_rear_wheel %}
-                            <p>Ліве заднє колесо</p>
+                            <li>Ліве заднє колесо</li>
                           {% endif %}
                           {% if dmg.right_rear_wheel %}
-                            <p>Праве заднє колесо</p>
+                            <li>Праве заднє колесо</li>
                           {% endif %}
                           {% if dmg.left_front_wing %}
-                            <p>Ліве переднє крило</p>
+                            <li>Ліве переднє крило</li>
                           {% endif %}
                           {% if dmg.right_front_wing %}
-                            <p>Праве переднє крило</p>
+                            <li>Праве переднє крило</li>
                           {% endif %}
                           {% if dmg.left_rear_wing %}
-                            <p>Ліве заднє крило</p>
+                            <li>Ліве заднє крило</li>
                           {% endif %}
                           {% if dmg.right_rear_wing %}
-                            <p>Праве заднє крило</p>
+                            <li>Праве заднє крило</li>
                           {% endif %}
                           {% if dmg.middle_front_glass %}
-                            <p>Лобове скло</p>
+                            <li>Лобове скло</li>
                           {% endif %}
                           {% if dmg.middle_rear_glass %}
-                            <p>Заднє скло</p>
+                            <li>Заднє скло</li>
                           {% endif %}
                           {% if dmg.left_front_glass %}
-                            <p>Ліве переднє скло</p>
+                            <li>Ліве переднє скло</li>
                           {% endif %}
                           {% if dmg.right_front_glass %}
-                            <p>Праве переднє скло</p>
+                            <li>Праве переднє скло</li>
                           {% endif %}
                           {% if dmg.left_rear_glass %}
-                            <p>Ліве заднє скло</p>
+                            <li>Ліве заднє скло</li>
                           {% endif %}
                           {% if dmg.right_rear_glass %}
-                            <p>Праве заднє скло</p>
+                            <li>Праве заднє скло</li>
                           {% endif %}
                           {% if dmg.left_front_door %}
-                            <p>Ліві передні двері</p>
+                            <li>Ліві передні двері</li>
                           {% endif %}
                           {% if dmg.right_front_door %}
-                            <p>Праві передні двері</p>
+                            <li>Праві передні двері</li>
                           {% endif %}
                           {% if dmg.left_rear_door %}
-                            <p>Ліві задні двері</p>
+                            <li>Ліві задні двері</li>
                           {% endif %}
                           {% if dmg.right_rear_door %}
-                            <p>Праві задні двері</p>
+                            <li>Праві задні двері</li>
                           {% endif %}
                           {% if dmg.roof %}
-                            <p>Дах</p>
+                            <li>Дах</li>
                           {% endif %}
                         {% endif %}
                       {% endfor %}
+                    </ul>
+
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>

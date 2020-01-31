@@ -17102,3 +17102,862 @@ INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:15:41] "GET /journal HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:15:41] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
 INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:15:41] "GET /static/js/editable.js HTTP/1.1" 404 -
 INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:15:41] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:47:39] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:47:39] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:47:39] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:47:39] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:47:39] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:47:42] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:47:42] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:47:42] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event 
+WHERE event.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 20}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:UPDATE event SET departure_date=%(departure_date)s, departure_time=%(departure_time)s, after_payment=%(after_payment)s WHERE event.id = %(event_id)s
+INFO:sqlalchemy.engine.base.Engine:{'departure_date': '2020-01-31', 'departure_time': '18:48:42', 'after_payment': -500, 'event_id': 20}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:42] "GET /journal/pre_close_event/20 HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:42] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:42] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:42] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:42] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event 
+WHERE event.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 20}
+INFO:sqlalchemy.engine.base.Engine:UPDATE event SET closed=%(closed)s WHERE event.id = %(event_id)s
+INFO:sqlalchemy.engine.base.Engine:{'closed': 1, 'event_id': 20}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:46] "GET /journal/close_event/20 HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:46] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:46] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:46] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:47] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event 
+WHERE event.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 24}
+INFO:sqlalchemy.engine.base.Engine:UPDATE event SET closed=%(closed)s WHERE event.id = %(event_id)s
+INFO:sqlalchemy.engine.base.Engine:{'closed': 1, 'event_id': 24}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:48] "GET /journal/close_event/24 HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:49] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:49] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:49] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:49] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event 
+WHERE event.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 25}
+INFO:sqlalchemy.engine.base.Engine:UPDATE event SET closed=%(closed)s WHERE event.id = %(event_id)s
+INFO:sqlalchemy.engine.base.Engine:{'closed': 1, 'event_id': 25}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:52] "GET /journal/close_event/25 HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:52] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:52] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:52] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event 
+WHERE event.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 26}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:UPDATE event SET departure_date=%(departure_date)s, departure_time=%(departure_time)s, after_payment=%(after_payment)s WHERE event.id = %(event_id)s
+INFO:sqlalchemy.engine.base.Engine:{'departure_date': '2020-01-31', 'departure_time': '18:48:54', 'after_payment': -300, 'event_id': 26}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:54] "GET /journal/pre_close_event/26 HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:54] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:54] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:54] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:54] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event 
+WHERE event.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 26}
+INFO:sqlalchemy.engine.base.Engine:UPDATE event SET closed=%(closed)s WHERE event.id = %(event_id)s
+INFO:sqlalchemy.engine.base.Engine:{'closed': 1, 'event_id': 26}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:56] "GET /journal/close_event/26 HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:56] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:57] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:57] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:48:57] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event 
+WHERE event.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 27}
+INFO:sqlalchemy.engine.base.Engine:UPDATE event SET closed=%(closed)s WHERE event.id = %(event_id)s
+INFO:sqlalchemy.engine.base.Engine:{'closed': 1, 'event_id': 27}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:49:16] "GET /journal/close_event/27 HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:49:16] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:49:16] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:49:16] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:49:16] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event 
+WHERE event.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 28}
+INFO:sqlalchemy.engine.base.Engine:UPDATE event SET closed=%(closed)s WHERE event.id = %(event_id)s
+INFO:sqlalchemy.engine.base.Engine:{'closed': 1, 'event_id': 28}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:49:30] "GET /journal/close_event/28 HTTP/1.1" 302 -
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:49:30] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:49:30] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:49:30] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:49:30] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:57:34] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:57:34] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:57:34] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:57:34] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:58:04] "GET /journal HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:58:04] "GET /journal?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:58:04] "GET /journal?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:58:04] "GET /journal?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:58:05] "GET /journal?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:58:05] "GET /journal?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:58:05] "GET /journal?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:59:01] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:59:02] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:59:02] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 18:59:02] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:01] "GET /journal HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:01] "GET /journal?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:01] "GET /journal?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:01] "GET /journal?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:02] "GET /journal?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:02] "GET /journal?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:02] "GET /journal?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:27] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:27] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:27] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:27] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:37] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:37] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:37] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:03:37] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:17:05] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:17:05] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:17:05] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:17:05] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:18:11] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:18:11] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:18:11] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:41] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:42] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:42] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:43] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:43] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:43] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:43] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:45] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:46] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:46] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:46] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT customer.id AS customer_id, customer.last_name AS customer_last_name, customer.first_name AS customer_first_name, customer.middle_name AS customer_middle_name, customer.phone_number AS customer_phone_number 
+FROM customer
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT car.id AS car_id, car.brand AS car_brand, car.number AS car_number, car.customer_id AS car_customer_id 
+FROM car 
+WHERE %(param_1)s = car.customer_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:51] "GET /customers HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:51] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:51] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:51] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:52] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:52] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:52] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:19:52] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT event.id AS event_id, event.last_name AS event_last_name, event.first_name AS event_first_name, event.middle_name AS event_middle_name, event.car_brand AS event_car_brand, event.car_number AS event_car_number, event.phone_number AS event_phone_number, event.enter_date AS event_enter_date, event.enter_time AS event_enter_time, event.pre_payment AS event_pre_payment, event.departure_date AS event_departure_date, event.departure_time AS event_departure_time, event.total_days AS event_total_days, event.after_payment AS event_after_payment, event.token AS event_token, event.form_avail AS event_form_avail, event.closed AS event_closed, event.customer_id AS event_customer_id, event.lot_id AS event_lot_id 
+FROM event
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT damage.id AS damage_id, damage.head_lights AS damage_head_lights, damage.tail_lights AS damage_tail_lights, damage.front_bumper AS damage_front_bumper, damage.rear_bumber AS damage_rear_bumber, damage.hood AS damage_hood, damage.trunk AS damage_trunk, damage.roof AS damage_roof, damage.left_front_wheel AS damage_left_front_wheel, damage.right_front_wheel AS damage_right_front_wheel, damage.left_rear_wheel AS damage_left_rear_wheel, damage.right_rear_wheel AS damage_right_rear_wheel, damage.left_front_wing AS damage_left_front_wing, damage.right_front_wing AS damage_right_front_wing, damage.left_rear_wing AS damage_left_rear_wing, damage.right_rear_wing AS damage_right_rear_wing, damage.middle_front_glass AS damage_middle_front_glass, damage.middle_rear_glass AS damage_middle_rear_glass, damage.left_front_glass AS damage_left_front_glass, damage.left_rear_glass AS damage_left_rear_glass, damage.right_front_glass AS damage_right_front_glass, damage.right_rear_glass AS damage_right_rear_glass, damage.left_front_door AS damage_left_front_door, damage.left_rear_door AS damage_left_rear_door, damage.right_front_door AS damage_right_front_door, damage.right_rear_door AS damage_right_rear_door, damage.event_id AS damage_event_id 
+FROM damage
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 2}
+INFO:sqlalchemy.engine.base.Engine:SELECT lot.id AS lot_id, lot.name AS lot_name, lot.price AS lot_price, lot.num_left AS lot_num_left 
+FROM lot 
+WHERE lot.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 3}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:33:08] "GET /journal HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:33:08] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:33:08] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:33:08] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT duty.id AS duty_id, duty.opened AS duty_opened, duty.num_free_lots AS duty_num_free_lots, duty.num_cars_to_go AS duty_num_cars_to_go, duty.additional_payment AS duty_additional_payment, duty.returned_payment AS duty_returned_payment, duty.datetime_opened AS duty_datetime_opened, duty.datetime_closed AS duty_datetime_closed 
+FROM duty
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:33:10] "GET /duty HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:33:10] "GET /duty?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:33:10] "GET /duty?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:33:10] "GET /duty?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:33:10] "GET /duty?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:33:10] "GET /duty?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/atlas/parking-keeper/data.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO user (username, password, `role`, last_name, first_name, middle_name) VALUES (%(username)s, %(password)s, %(role)s, %(last_name)s, %(first_name)s, %(middle_name)s)
+INFO:sqlalchemy.engine.base.Engine:{'username': 'user1', 'password': 'ef9e71d67bd958d51da90a6af4083bdf7a23053f74e1afa8106b49ce12efd5578671e42ea792ad3031d13558c3d001ea8a537e6795295214c22c94d9978dd01c8c0f9cb03376f3de1db7c08fa6eca78ab095ea81eeab112e2a49b4607a3f081c', 'role': 'user', 'last_name': None, 'first_name': None, 'middle_name': None}
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO duty (opened, num_free_lots, num_cars_to_go, additional_payment, returned_payment, datetime_opened, datetime_closed) VALUES (%(opened)s, %(num_free_lots)s, %(num_cars_to_go)s, %(additional_payment)s, %(returned_payment)s, %(datetime_opened)s, %(datetime_closed)s)
+INFO:sqlalchemy.engine.base.Engine:{'opened': 0, 'num_free_lots': None, 'num_cars_to_go': None, 'additional_payment': None, 'returned_payment': None, 'datetime_opened': None, 'datetime_closed': None}
+INFO:sqlalchemy.engine.base.Engine:ROLLBACK
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `onduty`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:ROLLBACK
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `user`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:ROLLBACK
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `duty`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:ROLLBACK
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `event`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `customer`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `car`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `lot`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:DESCRIBE `damage`
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:
+CREATE TABLE user (
+	id INTEGER NOT NULL AUTO_INCREMENT, 
+	username VARCHAR(32), 
+	password VARCHAR(256), 
+	`role` VARCHAR(32), 
+	last_name VARCHAR(32), 
+	first_name VARCHAR(32), 
+	middle_name VARCHAR(32), 
+	PRIMARY KEY (id)
+)
+
+
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:
+CREATE TABLE duty (
+	id INTEGER NOT NULL AUTO_INCREMENT, 
+	opened BOOL, 
+	num_free_lots INTEGER, 
+	num_cars_to_go INTEGER, 
+	additional_payment INTEGER, 
+	returned_payment INTEGER, 
+	datetime_opened DATETIME, 
+	datetime_closed DATETIME, 
+	PRIMARY KEY (id), 
+	CHECK (opened IN (0, 1))
+)
+
+
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:
+CREATE TABLE onduty (
+	duty_id INTEGER, 
+	user_id INTEGER, 
+	FOREIGN KEY(duty_id) REFERENCES duty (id), 
+	FOREIGN KEY(user_id) REFERENCES user (id)
+)
+
+
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO user (username, password, `role`, last_name, first_name, middle_name) VALUES (%(username)s, %(password)s, %(role)s, %(last_name)s, %(first_name)s, %(middle_name)s)
+INFO:sqlalchemy.engine.base.Engine:{'username': 'user1', 'password': 'e45c2951c7af352fc7cc3438721f8e8ec37d9b6934934850a074a8804b394c89ee61d72936fd61a004061aa9c81d363b38593c4eb1c54390a037a64b7e7809385f477ccd6e5a14348279db68479d6b41dca5957398d0692d4e3e6ed4510acc7e', 'role': 'user', 'last_name': None, 'first_name': None, 'middle_name': None}
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO duty (opened, num_free_lots, num_cars_to_go, additional_payment, returned_payment, datetime_opened, datetime_closed) VALUES (%(opened)s, %(num_free_lots)s, %(num_cars_to_go)s, %(additional_payment)s, %(returned_payment)s, %(datetime_opened)s, %(datetime_closed)s)
+INFO:sqlalchemy.engine.base.Engine:{'opened': 0, 'num_free_lots': None, 'num_cars_to_go': None, 'additional_payment': None, 'returned_payment': None, 'datetime_opened': None, 'datetime_closed': None}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT duty.id AS duty_id, duty.opened AS duty_opened, duty.num_free_lots AS duty_num_free_lots, duty.num_cars_to_go AS duty_num_cars_to_go, duty.additional_payment AS duty_additional_payment, duty.returned_payment AS duty_returned_payment, duty.datetime_opened AS duty_datetime_opened, duty.datetime_closed AS duty_datetime_closed 
+FROM duty 
+WHERE duty.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user, onduty 
+WHERE %(param_1)s = onduty.duty_id AND user.id = onduty.user_id
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(param_1)s
+INFO:sqlalchemy.engine.base.Engine:{'param_1': 1}
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO onduty (duty_id, user_id) VALUES (%(duty_id)s, %(user_id)s)
+INFO:sqlalchemy.engine.base.Engine:{'duty_id': 1, 'user_id': 1}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO user (username, password, `role`, last_name, first_name, middle_name) VALUES (%(username)s, %(password)s, %(role)s, %(last_name)s, %(first_name)s, %(middle_name)s)
+INFO:sqlalchemy.engine.base.Engine:{'username': 'admin', 'password': '5beb0b50f7d50a309dfb56fe2e8ee61323b22bf30b8cf0616c8b240acf9d08c00a5afa55c96601c21e1e83081ca33e800b124252ecd23ef02da8572ea131f0362bb62c34e2c512e1c8d03ef8c2d1c71e18bec75386a65aad2189039bb96a5757', 'role': 'admin', 'last_name': None, 'first_name': None, 'middle_name': None}
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 336-163-945
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'sql_mode'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT DATABASE()
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:SELECT user.id AS user_id, user.username AS user_username, user.password AS user_password, user.`role` AS user_role, user.last_name AS user_last_name, user.first_name AS user_first_name, user.middle_name AS user_middle_name 
+FROM user 
+WHERE user.id = %(id_1)s
+INFO:sqlalchemy.engine.base.Engine:{'id_1': '1'}
+INFO:sqlalchemy.engine.base.Engine:SELECT duty.id AS duty_id, duty.opened AS duty_opened, duty.num_free_lots AS duty_num_free_lots, duty.num_cars_to_go AS duty_num_cars_to_go, duty.additional_payment AS duty_additional_payment, duty.returned_payment AS duty_returned_payment, duty.datetime_opened AS duty_datetime_opened, duty.datetime_closed AS duty_datetime_closed 
+FROM duty
+INFO:sqlalchemy.engine.base.Engine:{}
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:50:11] "GET /duty HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:50:11] "GET /static/js/bootstable.min.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:50:11] "GET /static/js/editable.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [31/Jan/2020 19:50:11] "GET /static/js/editable.js HTTP/1.1" 404 -

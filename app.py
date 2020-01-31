@@ -80,21 +80,6 @@ def journal():
     8. Навіс
     '''
     if request.method == 'POST':
-        # fullname = (request.form['fullname']).split()
-        # last_name = fullname[0]
-        # first_name = fullname[1]
-        # middle_name = fullname[2]
-        # car_brand = request.form['car_brand']
-        # car_number = request.form['car_number']
-        # phone_number = request.form['phone_number']
-        # token = request.form['token']
-        # enter_date = datetime.strptime(request.form['enter_date'], '%Y-%m-%d')
-        # enter_time = datetime.strptime(request.form['enter_time'], '%H:%M')
-        # pre_payment = request.form['pre_payment']
-        # departure_date = datetime.strptime(request.form['departure_date'], '%Y-%m-%d')
-        # departure_time = datetime.strptime(request.form['departure_time'], '%H:%M')
-        # total_days = request.form['total_days']
-        # after_payment = request.form['after_payment']
         try:
             customer_id = int(request.form['customer_id'])
             car_number = request.form['car_number']

@@ -22,7 +22,7 @@ class User(UserMixin, Base):
     last_name = Column(String(32))
     first_name = Column(String(32))
     middle_name = Column(String(32))
-    duty = relationship('Duty', secondary=onduty, backref='users_on_duty')
+    duty = relationship('Duty', secondary=onduty, backref='users')
 
     def __repr__(self):
         return "%d/%s/%s" % (self.id, self.username, self.password)

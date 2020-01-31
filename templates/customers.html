@@ -77,7 +77,7 @@
           <p>
             <div>
               <label for="fullname">ПІБ</label>
-              <input class="form-control" pattern="^[А-ЯІЮЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюєії]+" type="text" name="fullname" id="fullname" placeholder="Петренко Олексій Іванович" required>
+              <input class="form-control" pattern="^[А-ЯІЮЄЇA-Z]{1}[а-яюієїa-z]+\s[А-ЯЮІЄЇA-Z]{1}[а-яюієїa-z]+\s[А-ЯЮІЄЇA-Z]{1}[а-яюєіїa-z]+" type="text" name="fullname" id="fullname" placeholder="Петренко Олексій Іванович" required>
               <div class="invalid-feedback">
                 ПІБ вказано не вірно
               </div>
@@ -86,7 +86,7 @@
           <p>
             <div>
               <label for="phone_number">Номер телефону</label>
-              <input class="form-control" pattern="0[0-9]{9}" type="text" name="phone_number" id="phone_number" placeholder="0660280336" required>
+              <input class="form-control" pattern="\+[0-9]{12}" type="text" name="phone_number" id="phone_number" placeholder="0660280336" required>
               <div class="invalid-feedback">
                 Номер телефону вказано не вірно
               </div>
@@ -104,7 +104,7 @@
           <p>
             <div>
               <label for="car_number">Номер авто</label>
-              <input class="form-control" pattern="[А-ЯІЮЄЇ]{2}[\d]{4}[А-ЯІЮЄЇ]{2}" type="text" name="car_number" id="car_number" placeholder="АН2012ВТ" required>
+              <input class="form-control" pattern="[А-ЯІЮЄЇA-Z0-9]{4,12}" type="text" name="car_number" id="car_number" placeholder="АН2012ВТ" required>
               <div class="invalid-feedback">
                 Номер авто вказано не вірно
               </div>
@@ -120,8 +120,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 <!-- TABLE -->
@@ -196,7 +194,7 @@
                       <p>
                         <div>
                           <label for="title">ПІБ:</label>
-                          <input class="form-control" pattern="^[А-ЯІЮЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюієї]+\s[А-ЯЮІЄЇ]{1}[а-яюєії]+" type="text" name="fullname" id="fullname" value="{{' '.join((customer.last_name, customer.first_name, customer.middle_name))}}" required>
+                          <input class="form-control" pattern="^[А-ЯІЮЄЇA-Z]{1}[а-яюієїa-z]+\s[А-ЯЮІЄЇA-Z]{1}[а-яюієїa-z]+\s[А-ЯЮІЄЇA-Z]{1}[а-яюєіїa-z]+" type="text" name="fullname" id="fullname" value="{{' '.join((customer.last_name, customer.first_name, customer.middle_name))}}" required>
                           <div class="invalid-feedback">
                             ПІБ вказано не вірно
                           </div>
@@ -205,7 +203,7 @@
                       <p>
                         <div>
                           <label for="content">Номер телефону:</label>
-                          <input class="form-control" pattern="0[0-9]{9}" type="text" name="phone_number" id="phone_number" value="{{customer.phone_number}}" required>
+                          <input class="form-control" pattern="\+[0-9]{12}" type="text" name="phone_number" id="phone_number" value="{{customer.phone_number}}" required>
                           <div class="invalid-feedback">
                             Номер телефону вказано не вірно
                           </div>
@@ -261,7 +259,7 @@
                       </p>
                       <p>
                           <label for="add_car_number">Номер авто:</label>
-                          <input class="form-control" pattern="[А-ЯІЮЄЇ]{2}[\d]{4}[А-ЯІЮЄЇ]{2}" type="text" name="add_car_number" id="add_car_number" placeholder="АН2012ВТ" required>
+                          <input class="form-control" pattern="[А-ЯІЮЄЇA-Z0-9]{4,12}" type="text" name="add_car_number" id="add_car_number" placeholder="АН2012ВТ" required>
                           <div class="invalid-feedback">
                             Номер авто вказано не вірно
                           </div>
