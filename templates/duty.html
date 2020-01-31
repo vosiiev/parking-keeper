@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Зміна</h3>
+  <div class="card-body">
+    {% if duty.opened %}
+      <main role="main" class="container">
+        <div class="jumbotron text-center mb-4">
+          <p class="lead"></p>
+          <a class="btn btn-lg btn-danger" href="#" role="button">Закрити зміну &raquo;</a>
+        </div>
+      </main>
+    {% else %}
+      <main role="main" class="container">
+        <div class="jumbotron text-center mb-4">
+          <p class="lead"></p>
+          <a class="btn btn-lg btn-success" href="#" role="button">Відкрити зміну &raquo;</a>
+        </div>
+      </main>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

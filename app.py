@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from flask import Flask, Response, render_template, request, redirect, \
                     session, url_for, escape, abort
 from sqlalchemy.orm import sessionmaker
-from data import Event, User, Customer, Car
+from data import Event, User, Customer, Car, Duty, Lot, Damage
 from flask_login import LoginManager, login_required, \
                         login_user, logout_user, current_user
 from security import hash_password, verify_password
@@ -113,6 +113,19 @@ def journal():
 
         pre_payment = calculate_payment(lot_type, num_days)
 
+        #damage_handler()
+
+        if lot_type == 7:
+            lot_type = 3
+        elif lot_type == 8:
+            lot_type = 5
+        lot = db_session.query(Lot).filter_by(id=lot_type).one()
+        lot.num_left -= 1
+
+        # =========
+        hood = False
+        dmg = request.form.getlist('hood')
+        logging.info(bool(dmg))
         try:
             new_event = Event(
                     last_name=customer.last_name,
@@ -125,12 +138,41 @@ def journal():
                     enter_date=enter_date,
                     enter_time=enter_time,
                     pre_payment=pre_payment,
-                    lot_type=lot_type,
-                    # departure_date=departure_date.date(),
-                    # departure_time=departure_time.time(),
-                    # total_days=total_days,
-                    # after_payment=after_payment,
+                    lot=lot,
+                    customer=customer,
+                    total_days=num_days,
                 )
+
+            damage = Damage(
+                    head_lights=bool(request.form.getlist('head_lights')),
+                    tail_lights=bool(request.form.getlist('tail_lights')),
+                    front_bumper=bool(request.form.getlist("front_bumper")),
+                    rear_bumber=bool(request.form.getlist("rear_bumber")),
+                    hood=bool(request.form.getlist("hood")),
+                    trunk=bool(request.form.getlist("trunk")),
+                    roof=bool(request.form.getlist("roof")),
+                    left_front_wheel=bool(request.form.getlist("left_front_wheel")),
+                    right_front_wheel=bool(request.form.getlist("right_front_wheel")),
+                    left_rear_wheel=bool(request.form.getlist("left_rear_wheel")),
+                    right_rear_wheel=bool(request.form.getlist("right_rear_wheel")),
+                    left_front_wing=bool(request.form.getlist("left_front_wing")),
+                    right_front_wing=bool(request.form.getlist("right_front_wing")),
+                    left_rear_wing=bool(request.form.getlist("left_rear_wing")),
+                    right_rear_wing=bool(request.form.getlist("right_rear_wing")),
+                    middle_front_glass=bool(request.form.getlist("middle_front_glass")),
+                    middle_rear_glass=bool(request.form.getlist("middle_rear_glass")),
+                    left_front_glass=bool(request.form.getlist("left_front_glass")),
+                    left_rear_glass=bool(request.form.getlist("left_rear_glass")),
+                    right_front_glass=bool(request.form.getlist("right_front_glass")),
+                    right_rear_glass=bool(request.form.getlist("right_rear_glass")),
+                    left_front_door=bool(request.form.getlist("left_front_door")),
+                    left_rear_door=bool(request.form.getlist("left_rear_door")),
+                    right_front_door=bool(request.form.getlist("right_front_door")),
+                    right_rear_door=bool(request.form.getlist("right_rear_door")),
+                    event=new_event,
+                )
+
+            db_session.add(damage)
             db_session.add(new_event)
             db_session.commit()
         except Exception as e:
@@ -138,7 +180,8 @@ def journal():
         return redirect(url_for('journal'))
     else:
         events = db_session.query(Event).all()
-        return render_template('journal.html', events=events)
+        damage = db_session.query(Damage).all()
+        return render_template('journal.html', events=events, damage=damage)
 
 
 def calculate_payment(lot_type, num_days):
@@ -225,22 +268,33 @@ def edit_event(id):
         return render_template('journal.html', edit_event=event)
 
 
-@app.route('/journal/close_event/<int:id>')
+@app.route('/journal/pre_close_event/<int:id>')
 @login_required
-def close_event(id):
+def pre_close_event(id):
     event = db_session.query(Event).get(id)
     now = datetime.now()
     departure_date = now.strftime('%Y-%m-%d')
     departure_time = now.strftime('%H:%M:%S')
     delta = date.today() - event.enter_date
     total_days = delta.days
-    after_payment = calculate_payment(event.lot_type, total_days)
+    delta_days = total_days - event.total_days
+    after_payment = event.lot.price * delta_days
 
     event.departure_date = departure_date
     event.departure_time = departure_time
-    event.total_days = total_days
     event.after_payment = after_payment
+    # event.closed = True
+    db_session.commit()
+    return redirect(url_for('journal'))
+
+
+
+@app.route('/journal/close_event/<int:id>')
+@login_required
+def close_event(id):
+    event = db_session.query(Event).get(id)
     event.closed = True
+    # print check must be here
     db_session.commit()
     return redirect(url_for('journal'))
 
@@ -299,7 +353,9 @@ def delete_event(id):
     Delete journal event on button click.
     '''
     event = db_session.query(Event).get(id)
+    damage = db_session.query(Damage).filter_by(event_id=event.id).one()
     db_session.delete(event)
+    db_session.delete(damage)
     db_session.commit()
     return redirect(url_for('journal'))
 
@@ -311,9 +367,29 @@ def delete_customer(id):
     Delete customer on button click.
     '''
     customer = db_session.query(Customer).get(id)
+    car = db_session.query(Car).filter_by(customer_id=customer.id).one()
     db_session.delete(customer)
+    db_session.delete(car)
     db_session.commit()
     return redirect(url_for('customers'))
+
+
+@app.route('/duty')
+@login_required
+def duty():
+    duties = db_session.query(Duty).all()
+    last_duty = duties[-1]
+    return render_template('duty.html', duty=last_duty)
+
+
+@app.route('/journal/details/<int:id>', methods=['GET', 'POST'])
+@login_required
+def details(id):
+    event = db_session.query(Event).get(id)
+    if request.method == 'POST':
+        if request.form['hood']:
+            return 'success'
+
 
 
 if __name__ == '__main__':

@@ -18,5 +18,4 @@
 11. add tokens +
 12. add to journal by customer token +
 12.1. close the position +
-13. add full validation
-Петренко Олексій Васильович
+13. add full validation +
