@@ -32,12 +32,14 @@ class Duty(Base):
     __tablename__ = 'duty'
     id = Column(Integer, primary_key=True)
     opened = Column(Boolean)
-    num_free_lots = Column(Integer)
     num_cars_to_go = Column(Integer)
     additional_payment = Column(Integer)
     returned_payment = Column(Integer)
-    datetime_opened = Column(DateTime)
-    datetime_closed = Column(DateTime)
+    total_money = Column(Integer)
+    date_opened = Column(Date)
+    time_opened = Column(Time)
+    date_closed = Column(Date)
+    time_closed = Column(Time)
 
 
 class Event(Base):
@@ -82,8 +84,6 @@ class Event(Base):
     lot_id = Column(Integer, ForeignKey('lot.id'))
 
     damage = relationship('Damage', backref='event')
-
-
 
 
 class Customer(Base):

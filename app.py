@@ -8,7 +8,7 @@ from flask_login import LoginManager, login_required, \
 from security import hash_password, verify_password
 import logging
 from functools import wraps
-from datetime import datetime, date, time
+from datetime import datetime, date, time, timedelta
 
 app = Flask(__name__)
 app.secret_key = b'\xec\x18\xd6\x08y\xcb\xa2\r^\xdb\xc4\xf9U\x0fj"'
@@ -105,12 +105,9 @@ def journal():
         elif lot_type == 8:
             lot_type = 5
         lot = db_session.query(Lot).filter_by(id=lot_type).one()
-        lot.num_left -= 1
+        if lot_type == 7 or lot_type == 8:
+            lot.num_left -= 2
 
-        # =========
-        hood = False
-        dmg = request.form.getlist('hood')
-        logging.info(bool(dmg))
         try:
             new_event = Event(
                     last_name=customer.last_name,
@@ -126,6 +123,8 @@ def journal():
                     lot=lot,
                     customer=customer,
                     total_days=num_days,
+                    form_avail=False,
+                    closed=False,
                 )
 
             damage = Damage(
@@ -268,7 +267,6 @@ def pre_close_event(id):
     event.departure_date = departure_date
     event.departure_time = departure_time
     event.after_payment = after_payment
-    # event.closed = True
     db_session.commit()
     return redirect(url_for('journal'))
 
@@ -278,11 +276,21 @@ def pre_close_event(id):
 @login_required
 def close_event(id):
     event = db_session.query(Event).get(id)
+    ow = datetime.now()
+    departure_date = now.strftime('%Y-%m-%d')
+    departure_time = now.strftime('%H:%M:%S')
+    delta = date.today() - event.enter_date
+    total_days = delta.days
+    delta_days = total_days - event.total_days
+    after_payment = event.lot.price * delta_days
+
+    event.departure_date = departure_date
+    event.departure_time = departure_time
+    event.after_payment = after_payment
     event.closed = True
     # print check must be here
     db_session.commit()
     return redirect(url_for('journal'))
-
 
 
 @app.route('/customers/edit/<int:id>', methods=['GET', 'POST'])
@@ -367,13 +375,63 @@ def duty():
     return render_template('duty.html', duty=last_duty)
 
 
-@app.route('/journal/details/<int:id>', methods=['GET', 'POST'])
+@app.route('/open_duty', methods=['GET', 'POST'])
 @login_required
-def details(id):
-    event = db_session.query(Event).get(id)
+def open_duty():
     if request.method == 'POST':
-        if request.form['hood']:
-            return 'success'
+        lots = db_session.query(Lot).all()
+        now = datetime.now()
+        date_opened = now.strftime('%Y-%m-%d')
+        time_opened = now.strftime('%H:%M:%S')
+
+
+        tmp = now + timedelta(hours=9)
+        events = db_session.query(Event).\
+                filter(Event.departure_date>now.date(),
+                       Event.departure_date<tmp.date())
+
+        duty = Duty(
+            opened=True,
+            num_cars_to_go=0,
+            additional_payment=0,
+            returned_payment=0,
+            total_money=0,
+            date_opened=date_opened,
+            time_opened=time_opened,
+        )
+
+        duty.users.append(current_user)
+        db_session.add(duty)
+        db_session.commit()
+        return redirect(url_for('duty'))
+    else:
+        return render_template('duty.html')
+
+
+@app.route('/close_duty/<int:id>')
+@login_required
+def close_duty(id):
+    duty = db_session.query(Duty).get(id)
+    for user in duty.users:
+        if current_user == user or current_user.username == 'admin':
+            now = datetime.now()
+            date_closed = now.strftime('%Y-%m-%d')
+            time_closed = now.strftime('%H:%M:%S')
+
+            duty.date_closed = date_closed
+            duty.time_closed = time_closed
+            duty.opened = False
+
+            #implement total money etc
+
+            db_session.commit()
+            return redirect(url_for('duty'))
+        else:
+            error = 'Закрити зміну може лише той, хто її відкрив'
+            return render_template('duty.html', duty=duty, error=error)
+
+    error = 'Невідома помилка'
+    return render_template('duty.html', duty=duty, error=error)
 
 
 

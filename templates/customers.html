@@ -173,7 +173,7 @@
                 </td>
               {% else %}
                 <td class="pt-3-half">
-                  <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#add_{{customer.id}}">
+                  <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#add_car_{{customer.id}}">
                     <i class="fa fa-plus"></i>
                   </a>
                 </td>
@@ -222,7 +222,7 @@
                         <p>
                           <div>
                             <label for="author">Номер авто:</label>
-                            <input class="form-control" pattern="[А-ЯІЮЄЇ]{2}[\d]{4}[А-ЯІЮЄЇ]{2}" type="text" name="car_number_{{i}}" id="car_number_{{i}}" value="{{customer.cars[i].number}}" required>
+                            <input class="form-control" pattern="[А-ЯІЮЄЇA-Z0-9]{4,12}" type="text" name="car_number_{{i}}" id="car_number_{{i}}" value="{{customer.cars[i].number}}" required>
                             <div class="invalid-feedback">
                               Номер авто вказано не вірно
                             </div>

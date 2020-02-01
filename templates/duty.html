@@ -1,46 +1,94 @@
 {% extends 'base.html' %}
 
 {% block head %}
+
+<style media="screen">
+  .form-duty {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+  }
+  .form-duty .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+</style>
+
+<script type="text/javascript">
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
+
 {% endblock %}
+
 
 {% block body %}
 <div class="card">
   <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Зміна</h3>
   <div class="card-body">
+    <!-- CLOSE DUTY -->
     {% if duty.opened %}
       <main role="main" class="container">
         <div class="jumbotron text-center mb-4">
           <p class="lead"></p>
-          <a class="btn btn-lg btn-danger" href="#" role="button">Закрити зміну &raquo;</a>
+          <a class="btn btn-lg btn-danger" href="/close_duty/{{duty.id}}" role="button">Закрити зміну &raquo;</a>
         </div>
       </main>
+    <!-- OPEN DUTY -->
     {% else %}
-        <form class="form-signin">
-              <div class="text-center mb-4">
-                <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-                <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>
-                <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p>
-              </div>
+      <div class=" mb-4">
+        <form action="/open_duty" method="POST" class="form-duty needs-validation" novalidate>
+          <br>
+          <div class="container">
+            <div class="form-label-group">
+              <p>
+                <div class="form-group">
+                  <select id="worker" name="worker" class="custom-select form-control" required>
+                    <option value="">Паркувальник</option>
+                    <option value="1">Петренко Петро Петрович</option>
+                    <option value="2">Василенко Василь Васильович</option>
+                    <option value="3">Марічка</option>
+                  </select>
+                  <div class="invalid-feedback">Оберіть, будь ласка, ПІБ зі списку</div>
+                </div>
+              </p>
+              <p>
+                <div class="form-group">
+                  <select id="security" name="security" class="custom-select form-control" required>
+                    <option value="">Охоронець</option>
+                    <option value="1">Петренко Петро Петрович</option>
+                    <option value="2">Василенко Василь Васильович</option>
+                    <option value="3">Марічка</option>
+                  </select>
+                  <div class="invalid-feedback">Оберіть, будь ласка, ПІБ зі списку</div>
+                </div>
+              </p>
+            </div>
+            <br>
 
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputEmail">Email address</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <label for="inputPassword">Password</label>
-              </div>
-
-              <div class="checkbox mb-3">
-                <label>
-                  <input type="checkbox" value="remember-me"> Remember me
-                </label>
-              </div>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Відкрити зміну &raquo;</button>
-              <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
-            </form>          <p class="lead"></p>
-    {% endif %}
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Відкрити зміну</button>
+          </div>
+        </div>
+      {% endif %}
   </div>
 </div>
 {% endblock %}
