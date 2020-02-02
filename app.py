@@ -92,21 +92,26 @@ def journal():
         customer = db_session.query(Customer).filter_by(id=customer_id).one()
         car = db_session.query(Car).filter_by(number=car_number).one()
 
-        now = datetime.now()
-        enter_date = now.strftime('%Y-%m-%d')
-        enter_time = now.strftime('%H:%M:%S')
+        enter_datetime = datetime.now()
 
         pre_payment = calculate_payment(lot_type, num_days)
 
-        #damage_handler()
-
+        new_lot_type = 0
         if lot_type == 7:
-            lot_type = 3
+            new_lot_type = 3
         elif lot_type == 8:
-            lot_type = 5
-        lot = db_session.query(Lot).filter_by(id=lot_type).one()
+            new_lot_type = 5
+        else:
+            new_lot_type = lot_type
+
+
+        lot = db_session.query(Lot).filter_by(id=new_lot_type).one()
+        takes_both_places = False
         if lot_type == 7 or lot_type == 8:
             lot.num_left -= 2
+            takes_both_places = True
+        else:
+            lot.num_left -= 1
 
         try:
             new_event = Event(
@@ -117,9 +122,9 @@ def journal():
                     car_number=car.number,
                     phone_number=customer.phone_number,
                     token=token,
-                    enter_date=enter_date,
-                    enter_time=enter_time,
+                    enter_datetime=enter_datetime,
                     pre_payment=pre_payment,
+                    takes_both_places=takes_both_places,
                     lot=lot,
                     customer=customer,
                     total_days=num_days,
@@ -175,15 +180,15 @@ def calculate_payment(lot_type, num_days):
         return 50*num_days
     elif lot_type == 3:
         return 30*num_days
-    elif lot_type == 4:
+    elif lot_type == 7:
         return 60*num_days
+    elif lot_type == 4:
+        return 80*num_days
     elif lot_type == 5:
         return 80*num_days
-    elif lot_type == 6:
-        return 80*num_days
-    elif lot_type == 7:
-        return 160*num_days
     elif lot_type == 8:
+        return 160*num_days
+    elif lot_type == 6:
         return 60*num_days
 
 
@@ -229,6 +234,9 @@ def edit_event(id):
     if request.method == 'POST':
         try:
             fullname = (request.form['fullname']).split()
+            enter_date = request.form['enter_date']
+            enter_time = request.form['enter_time']
+            enter_datetime = ' '.join((enter_date, enter_time))
             event.last_name = fullname[0]
             event.first_name = fullname[1]
             event.middle_name = fullname[2]
@@ -236,8 +244,7 @@ def edit_event(id):
             event.car_number = request.form['car_number']
             event.phone_number = request.form['phone_number']
             event.token = request.form['token']
-            event.enter_date = request.form['enter_date']
-            event.enter_time = request.form['enter_time']
+            event.enter_datetime = datetime.strptime(enter_datetime, '%Y-%m-%d %H:%M')
             event.pre_payment = request.form['pre_payment']
             event.token = request.form['token']
             event.departure_date = request.form['departure_date']
@@ -256,39 +263,35 @@ def edit_event(id):
 @login_required
 def pre_close_event(id):
     event = db_session.query(Event).get(id)
-    now = datetime.now()
-    departure_date = now.strftime('%Y-%m-%d')
-    departure_time = now.strftime('%H:%M:%S')
-    delta = date.today() - event.enter_date
-    total_days = delta.days
-    delta_days = total_days - event.total_days
-    after_payment = event.lot.price * delta_days
 
-    event.departure_date = departure_date
-    event.departure_time = departure_time
+    delta = datetime.now() - event.enter_datetime
+    delta_days = delta.days - event.total_days
+    if event.takes_both_places:
+        after_payment = event.lot.price * delta_days * 2
+    else:
+        after_payment = event.lot.price * delta_days
+
+    event.departure_datetime = datetime.now()
     event.after_payment = after_payment
     db_session.commit()
     return redirect(url_for('journal'))
-
 
 
 @app.route('/journal/close_event/<int:id>')
 @login_required
 def close_event(id):
     event = db_session.query(Event).get(id)
-    ow = datetime.now()
-    departure_date = now.strftime('%Y-%m-%d')
-    departure_time = now.strftime('%H:%M:%S')
-    delta = date.today() - event.enter_date
-    total_days = delta.days
-    delta_days = total_days - event.total_days
-    after_payment = event.lot.price * delta_days
 
-    event.departure_date = departure_date
-    event.departure_time = departure_time
+    delta = datetime.now() - event.enter_datetime
+    delta_days = delta.days - event.total_days
+    if event.takes_both_places:
+        after_payment = event.lot.price * delta_days * 2
+    else:
+        after_payment = event.lot.price * delta_days
+
+    event.departure_datetime = datetime.now()
     event.after_payment = after_payment
     event.closed = True
-    # print check must be here
     db_session.commit()
     return redirect(url_for('journal'))
 
@@ -367,28 +370,23 @@ def delete_customer(id):
     return redirect(url_for('customers'))
 
 
-@app.route('/duty')
+def find_duty_events(events, duty):
+    duty_events = []
+    duty_end = datetime.now() + timedelta(hours=12)
+    for event in events:
+        departure_date = event.enter_datetime + timedelta(days=event.total_days)
+        if (departure_date > duty.opened_datetime and
+            departure_date < duty_end):
+            duty_events.append(event)
+
+    return duty_events
+
+
+@app.route('/duty', methods=['GET', 'POST'])
 @login_required
 def duty():
-    duties = db_session.query(Duty).all()
-    last_duty = duties[-1]
-    return render_template('duty.html', duty=last_duty)
-
-
-@app.route('/open_duty', methods=['GET', 'POST'])
-@login_required
-def open_duty():
     if request.method == 'POST':
-        lots = db_session.query(Lot).all()
         now = datetime.now()
-        date_opened = now.strftime('%Y-%m-%d')
-        time_opened = now.strftime('%H:%M:%S')
-
-
-        tmp = now + timedelta(hours=9)
-        events = db_session.query(Event).\
-                filter(Event.departure_date>now.date(),
-                       Event.departure_date<tmp.date())
 
         duty = Duty(
             opened=True,
@@ -396,33 +394,66 @@ def open_duty():
             additional_payment=0,
             returned_payment=0,
             total_money=0,
-            date_opened=date_opened,
-            time_opened=time_opened,
+            opened_datetime=now,
         )
 
+        worker_id = int(request.form['worker'])
+        worker = db_session.query(User).get(worker_id)
+        security_id = int(request.form['security'])
+        security = db_session.query(User).get(security_id)
+
         duty.users.append(current_user)
+        duty.users.append(worker)
+        duty.users.append(security)
         db_session.add(duty)
         db_session.commit()
         return redirect(url_for('duty'))
     else:
-        return render_template('duty.html')
+        duties = db_session.query(Duty).all()
+        events = db_session.query(Event).all()
+        users = db_session.query(User).all()
+        lots = db_session.query(Lot).all()
+
+        now = datetime.now()
+        if duties:
+            duty = duties[-1]
+        else:
+            duty = Duty(
+                opened=True,
+                num_cars_to_go=0,
+                additional_payment=0,
+                returned_payment=0,
+                total_money=0,
+                opened_datetime=now,
+            )
+
+            duty.users.append(current_user)
+
+        duty_events = find_duty_events(events, duty)
+        logging.info(duty_events)
+        # date_leave =  event.enter_datetime + timedelta(days=event.total_days)
+        return render_template('duty.html', duty=duty, events=duty_events,
+                                            lots=lots, users=users)
 
 
 @app.route('/close_duty/<int:id>')
 @login_required
 def close_duty(id):
     duty = db_session.query(Duty).get(id)
+    events = db_session.query(Event).all()
     for user in duty.users:
         if current_user == user or current_user.username == 'admin':
-            now = datetime.now()
-            date_closed = now.strftime('%Y-%m-%d')
-            time_closed = now.strftime('%H:%M:%S')
-
-            duty.date_closed = date_closed
-            duty.time_closed = time_closed
+            duty.closed_datetime = datetime.now()
             duty.opened = False
+            duty_events = find_duty_events(events, duty)
 
-            #implement total money etc
+            for event in duty_events:
+                if event.closed:
+                    duty.total_money += event.after_payment
+                    if event.after_payment > 0:
+                        duty.additional_payment += event.after_payment
+                    else:
+                        duty.returned_payment += event.after_payment
 
             db_session.commit()
             return redirect(url_for('duty'))

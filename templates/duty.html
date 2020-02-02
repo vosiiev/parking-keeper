@@ -42,53 +42,86 @@
 
 
 {% block body %}
-<div class="card">
-  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Зміна</h3>
-  <div class="card-body">
-    <!-- CLOSE DUTY -->
-    {% if duty.opened %}
-      <main role="main" class="container">
-        <div class="jumbotron text-center mb-4">
-          <p class="lead"></p>
-          <a class="btn btn-lg btn-danger" href="/close_duty/{{duty.id}}" role="button">Закрити зміну &raquo;</a>
-        </div>
-      </main>
-    <!-- OPEN DUTY -->
-    {% else %}
-      <div class=" mb-4">
-        <form action="/open_duty" method="POST" class="form-duty needs-validation" novalidate>
+<main role="main" class="flex-shrink-0">
+  <div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Зміна</h3>
+    <div class="card-body">
+
+      <!-- CLOSE DUTY -->
+      {% if duty.opened %}
+      <div class="mb-4">
           <br>
           <div class="container">
             <div class="form-label-group">
+              <p>Машин на виїзд: {{events|length}}</p>
+              <p>Вільних місць:</p>
               <p>
-                <div class="form-group">
-                  <select id="worker" name="worker" class="custom-select form-control" required>
-                    <option value="">Паркувальник</option>
-                    <option value="1">Петренко Петро Петрович</option>
-                    <option value="2">Василенко Василь Васильович</option>
-                    <option value="3">Марічка</option>
-                  </select>
-                  <div class="invalid-feedback">Оберіть, будь ласка, ПІБ зі списку</div>
-                </div>
+                <ul>
+                  {% for lot in lots %}
+                    <li>{{lot.name}} - {{lot.num_left}}</li>
+                  {% endfor %}
+                </ul>
               </p>
+              <p>Зміну відкрито: {{duty.opened_datetime}}</p>
+              <p>На зміні:</p>
               <p>
-                <div class="form-group">
-                  <select id="security" name="security" class="custom-select form-control" required>
-                    <option value="">Охоронець</option>
-                    <option value="1">Петренко Петро Петрович</option>
-                    <option value="2">Василенко Василь Васильович</option>
-                    <option value="3">Марічка</option>
-                  </select>
-                  <div class="invalid-feedback">Оберіть, будь ласка, ПІБ зі списку</div>
-                </div>
+                <ul>
+                  {% for user in duty.users %}
+                    <li>{{' '.join((user.last_name, user.first_name, user.middle_name))}}</li>
+                  {% endfor %}
+                </ul>
               </p>
             </div>
-            <br>
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Відкрити зміну</button>
           </div>
+      </div>
+          <div class="text-center mb-4">
+            <p class="lead"></p>
+            <a class="btn btn-lg btn-danger" href="/close_duty/{{duty.id}}" role="button">Закрити зміну &raquo;</a>
+          </div>
+      <!-- OPEN DUTY -->
+      {% else %}
+        <div class="mb-4">
+          <form action="/duty" method="POST" class="form-duty needs-validation" novalidate>
+            <br>
+            <div class="container">
+              <div class="form-label-group">
+                <p>
+                  <div class="form-group">
+                    <select id="worker" name="worker" class="custom-select form-control" required>
+                      <option value="">Паркувальник</option>
+                      {% for user in users %}
+                        {% if user.role == 'worker' %}
+                          <option value="{{user.id}}">{{' '.join((user.last_name, user.first_name, user.middle_name))}}</option>
+                        {% endif %}
+                      {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">Оберіть, будь ласка, ПІБ зі списку</div>
+                  </div>
+                </p>
+                <p>
+                  <div class="form-group">
+                    <select id="security" name="security" class="custom-select form-control" required>
+                      <option value="">Охоронець</option>
+                      {% for user in users %}
+                        {% if user.role == 'security' %}
+                          <option value="{{user.id}}">{{' '.join((user.last_name, user.first_name, user.middle_name))}}</option>
+                        {% endif %}
+                      {% endfor %}
+                    </select>
+                    <div class="invalid-feedback">Оберіть, будь ласка, ПІБ зі списку</div>
+                  </div>
+                </p>
+              </div>
+              <br>
+
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Відкрити зміну</button>
+            </div>
+            </form>
         </div>
       {% endif %}
+    </div>
+
   </div>
-</div>
+</main>
+
 {% endblock %}

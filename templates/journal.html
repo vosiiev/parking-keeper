@@ -376,13 +376,13 @@
                 <td class="pt-3-half">{{event.car_brand}}</td>
                 <td class="pt-3-half">{{event.car_number}}</td>
                 <td class="pt-3-half">{{event.token}}</td>
-                <td class="pt-3-half">{{event.enter_date}}</td>
-                <td class="pt-3-half">{{event.enter_time.strftime('%H:%M')}}</td>
+                <td class="pt-3-half">{{event.enter_datetime.strftime('%Y-%m-%d')}}</td>
+                <td class="pt-3-half">{{event.enter_datetime.strftime('%H:%M')}}</td>
                 <td class="pt-3-half">{{event.pre_payment}}</td>
                 <td class="pt-3-half">{{event.total_days}}</td>
-                {% if event.departure_date is not none %}
-                  <td class="pt-3-half">{{event.departure_date}}</td>
-                  <td class="pt-3-half">{{event.departure_time.strftime('%H:%M')}}</td>
+                {% if event.departure_datetime is not none %}
+                  <td class="pt-3-half">{{event.departure_datetime.strftime('%Y-%m-%d')}}</td>
+                  <td class="pt-3-half">{{event.departure_datetime.strftime('%H:%M')}}</td>
                   <td class="pt-3-half">{{event.after_payment}}</td>
                 {% else %}
                   <td class="pt-3-half">-</td>
@@ -475,7 +475,7 @@
                         </p>
                         <p>
                           <label for="after_payment">Сума по факту</label>
-                          <input class="form-control" min="30" type="number" name="after_payment" id="after_payment" value="{{event.after_payment}}">
+                          <input class="form-control" type="number" name="after_payment" id="after_payment" value="{{event.after_payment}}">
                         </p>
                         <div class="modal-footer">
                           <input type="submit" class="btn btn-primary" value="Зберегти"></input>
