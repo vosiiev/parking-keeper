@@ -15,6 +15,12 @@
    });
   </script>
 
+  <script type="text/javascript">
+    $('#edit_event').on('shown.bs.modal', function() {
+     $('#myInput').focus();
+   });
+  </script>
+
   <script>
   function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
@@ -142,9 +148,12 @@
     })();
   </script>
 
+
 {% endblock %}
 
 {% block body %}
+
+
 
   <!-- CREATE MODAL -->
   <div id="create_event" class="modal" tabindex="-1" role="dialog" >
@@ -343,6 +352,7 @@
   <div class="card">
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Журнал обліку</h3>
     <div class="card-body">
+      {% if current_user.username == 'admin' or duty.opened %}
       <div id="table" class="table-editable">
         <table id="journal_table" class="table table-bordered table-responsive-md table-striped table-sm text-center">
           <caption>
@@ -398,7 +408,7 @@
                     <a class="btn btn-success btn-sm" href="/journal/pre_close_event/{{event.id}}">
                       <i class="fa fa-check"></i>
                     </a>
-                    <a class="btn btn-success btn-sm" href="/journal/close_event/{{event.id}}">
+                    <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#close_event_{{event.id}}">
                       <i class="fa fa-print"></i>
                     </a>
                     </p>
@@ -417,6 +427,32 @@
 
 
               </tr>
+
+              <!-- CLOSE_EVENT_CONFIRMATION_MODAL -->
+              <div id="close_event_{{event.id}}" class="modal" tabindex="-1" role="dialog" >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Ви впевнені, що хочете закрити позицію?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <form method="POST" action="/journal/close_event/{{event.id}}">
+                      <div class="modal-body">
+                        <div>
+                          <input type="checkbox" value="1" name="form_avail" id="form_avail">
+                          <label for="form_avail">Наявність заяви (якщо забирає авто інша людина)</label>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Зберегти"></input>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
               <!-- EDIT MODAL -->
               <div id="edit_{{event.id}}" class="modal" tabindex="-1" role="dialog" >
                 <div class="modal-dialog" role="document">
@@ -606,6 +642,13 @@
           </tbody>
         </table>
       </div>
+      {% else %}
+      <div class="jumbotron text-center mb-4">
+        <h1>Необхідно відкрити зміну</h1>
+        <p class="lead">Швидкий доступ</p>
+        <a class="btn btn-lg btn-success" href="/duty" role="button">Відкрити зміну &raquo;</a>
+      </div>
+      {% endif %}
     </div>
   </div>
 

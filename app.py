@@ -90,8 +90,11 @@ def journal():
             return render_template('login.html', error=e)
 
         customer = db_session.query(Customer).filter_by(id=customer_id).one()
-        car = db_session.query(Car).filter_by(number=car_number).one()
-
+        try:
+            car = db_session.query(Car).filter_by(number=car_number, customer=customer).one()
+        except:
+            error = 'У даного клієнта немає такого авто'
+            return render_template('journal.html', error=error)
         enter_datetime = datetime.now()
 
         pre_payment = calculate_payment(lot_type, num_days)
@@ -112,6 +115,8 @@ def journal():
             takes_both_places = True
         else:
             lot.num_left -= 1
+
+        #if car not in customer.cars:
 
         try:
             new_event = Event(
@@ -168,9 +173,14 @@ def journal():
             return render_template('journal.html', error=e)
         return redirect(url_for('journal'))
     else:
+        duties = db_session.query(Duty).all()
+        duty = None
+        if duties:
+            duty = duties[-1]
         events = db_session.query(Event).all()
         damage = db_session.query(Damage).all()
-        return render_template('journal.html', events=events, damage=damage)
+        return render_template('journal.html', events=events, damage=damage,
+                                                duty=duty)
 
 
 def calculate_payment(lot_type, num_days):
@@ -199,7 +209,10 @@ def customers():
         fullname = (request.form['fullname']).split()
         last_name = fullname[0]
         first_name = fullname[1]
-        middle_name = fullname[2]
+        if len(fullname) == 3:
+            middle_name = fullname[2]
+        else:
+            middle_name = ''
         phone_number = request.form['phone_number']
         car_brand = request.form['car_brand']
         car_number = request.form['car_number']
@@ -277,23 +290,26 @@ def pre_close_event(id):
     return redirect(url_for('journal'))
 
 
-@app.route('/journal/close_event/<int:id>')
+@app.route('/journal/close_event/<int:id>', methods=['POST'])
 @login_required
 def close_event(id):
-    event = db_session.query(Event).get(id)
+    if request.method == 'POST':
+        event = db_session.query(Event).get(id)
+        delta = datetime.now() - event.enter_datetime
+        delta_days = delta.days - event.total_days
+        if event.takes_both_places:
+            event.lot.num_left += 2
+            after_payment = event.lot.price * delta_days * 2
+        else:
+            event.lot.num_left += 1
+            after_payment = event.lot.price * delta_days
 
-    delta = datetime.now() - event.enter_datetime
-    delta_days = delta.days - event.total_days
-    if event.takes_both_places:
-        after_payment = event.lot.price * delta_days * 2
-    else:
-        after_payment = event.lot.price * delta_days
-
-    event.departure_datetime = datetime.now()
-    event.after_payment = after_payment
-    event.closed = True
-    db_session.commit()
-    return redirect(url_for('journal'))
+        event.form_avail = bool(request.form.getlist('form_avail'))
+        event.departure_datetime = datetime.now()
+        event.after_payment = after_payment
+        event.closed = True
+        db_session.commit()
+        return redirect(url_for('journal'))
 
 
 @app.route('/customers/edit/<int:id>', methods=['GET', 'POST'])
@@ -363,9 +379,10 @@ def delete_customer(id):
     Delete customer on button click.
     '''
     customer = db_session.query(Customer).get(id)
-    car = db_session.query(Car).filter_by(customer_id=customer.id).one()
+    cars = db_session.query(Car).filter_by(customer_id=customer.id)
     db_session.delete(customer)
-    db_session.delete(car)
+    for car in cars:
+        db_session.delete(car)
     db_session.commit()
     return redirect(url_for('customers'))
 
