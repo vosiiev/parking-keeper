@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from flask import Flask, Response, render_template, request, redirect, \
                     session, url_for, escape, abort
 from sqlalchemy.orm import sessionmaker
-from data import Event, User, Customer, Car, Duty, Lot, Damage
+from model import Event, User, Customer, Car, Duty, Lot, Damage
 from flask_login import LoginManager, login_required, \
                         login_user, logout_user, current_user
 from security import hash_password, verify_password
@@ -21,7 +21,7 @@ login_manager.login_view = "login"
 logging.basicConfig(filename='info.log',level=logging.DEBUG)
 
 
-@app.route('/login', methods=["GET", "POST"])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -89,26 +89,27 @@ def journal():
         except ValueError as e:
             return render_template('login.html', error=e)
 
+        # Get customer and car data to auto create event.
         customer = db_session.query(Customer).filter_by(id=customer_id).one()
         try:
             car = db_session.query(Car).filter_by(number=car_number, customer=customer).one()
         except:
             error = 'У даного клієнта немає такого авто'
             return render_template('journal.html', error=error)
-        enter_datetime = datetime.now()
 
         pre_payment = calculate_payment(lot_type, num_days)
 
-        new_lot_type = 0
+        # Check which lot is taken and get it from db.
+        combine_lot_type = 0
         if lot_type == 7:
-            new_lot_type = 3
+            combine_lot_type = 3
         elif lot_type == 8:
-            new_lot_type = 5
+            combine_lot_type = 5
         else:
-            new_lot_type = lot_type
+            combine_lot_type = lot_type
+        lot = db_session.query(Lot).filter_by(id=combine_lot_type).one()
 
-
-        lot = db_session.query(Lot).filter_by(id=new_lot_type).one()
+        # Work with lot types that can contain either 1 or 2 cars.
         takes_both_places = False
         if lot_type == 7 or lot_type == 8:
             lot.num_left -= 2
@@ -116,56 +117,53 @@ def journal():
         else:
             lot.num_left -= 1
 
-        #if car not in customer.cars:
-
         try:
             new_event = Event(
-                    last_name=customer.last_name,
-                    first_name=customer.first_name,
-                    middle_name=customer.middle_name,
-                    car_brand=car.brand,
-                    car_number=car.number,
-                    phone_number=customer.phone_number,
-                    token=token,
-                    enter_datetime=enter_datetime,
-                    pre_payment=pre_payment,
-                    takes_both_places=takes_both_places,
-                    lot=lot,
-                    customer=customer,
-                    total_days=num_days,
-                    form_avail=False,
-                    closed=False,
-                )
-
+                last_name=customer.last_name,
+                first_name=customer.first_name,
+                middle_name=customer.middle_name,
+                car_brand=car.brand,
+                car_number=car.number,
+                phone_number=customer.phone_number,
+                token=token,
+                enter_datetime=datetime.now(),
+                pre_payment=pre_payment,
+                takes_both_places=takes_both_places,
+                lot=lot,
+                customer=customer,
+                total_days=num_days,
+                form_avail=False,
+                closed=False,
+            )
+            # Get initial car damage from checkboxes (to avoid problems with clients)
             damage = Damage(
-                    head_lights=bool(request.form.getlist('head_lights')),
-                    tail_lights=bool(request.form.getlist('tail_lights')),
-                    front_bumper=bool(request.form.getlist("front_bumper")),
-                    rear_bumber=bool(request.form.getlist("rear_bumber")),
-                    hood=bool(request.form.getlist("hood")),
-                    trunk=bool(request.form.getlist("trunk")),
-                    roof=bool(request.form.getlist("roof")),
-                    left_front_wheel=bool(request.form.getlist("left_front_wheel")),
-                    right_front_wheel=bool(request.form.getlist("right_front_wheel")),
-                    left_rear_wheel=bool(request.form.getlist("left_rear_wheel")),
-                    right_rear_wheel=bool(request.form.getlist("right_rear_wheel")),
-                    left_front_wing=bool(request.form.getlist("left_front_wing")),
-                    right_front_wing=bool(request.form.getlist("right_front_wing")),
-                    left_rear_wing=bool(request.form.getlist("left_rear_wing")),
-                    right_rear_wing=bool(request.form.getlist("right_rear_wing")),
-                    middle_front_glass=bool(request.form.getlist("middle_front_glass")),
-                    middle_rear_glass=bool(request.form.getlist("middle_rear_glass")),
-                    left_front_glass=bool(request.form.getlist("left_front_glass")),
-                    left_rear_glass=bool(request.form.getlist("left_rear_glass")),
-                    right_front_glass=bool(request.form.getlist("right_front_glass")),
-                    right_rear_glass=bool(request.form.getlist("right_rear_glass")),
-                    left_front_door=bool(request.form.getlist("left_front_door")),
-                    left_rear_door=bool(request.form.getlist("left_rear_door")),
-                    right_front_door=bool(request.form.getlist("right_front_door")),
-                    right_rear_door=bool(request.form.getlist("right_rear_door")),
-                    event=new_event,
-                )
-
+                head_lights=bool(request.form.getlist('head_lights')),
+                tail_lights=bool(request.form.getlist('tail_lights')),
+                front_bumper=bool(request.form.getlist("front_bumper")),
+                rear_bumber=bool(request.form.getlist("rear_bumber")),
+                hood=bool(request.form.getlist("hood")),
+                trunk=bool(request.form.getlist("trunk")),
+                roof=bool(request.form.getlist("roof")),
+                left_front_wheel=bool(request.form.getlist("left_front_wheel")),
+                right_front_wheel=bool(request.form.getlist("right_front_wheel")),
+                left_rear_wheel=bool(request.form.getlist("left_rear_wheel")),
+                right_rear_wheel=bool(request.form.getlist("right_rear_wheel")),
+                left_front_wing=bool(request.form.getlist("left_front_wing")),
+                right_front_wing=bool(request.form.getlist("right_front_wing")),
+                left_rear_wing=bool(request.form.getlist("left_rear_wing")),
+                right_rear_wing=bool(request.form.getlist("right_rear_wing")),
+                middle_front_glass=bool(request.form.getlist("middle_front_glass")),
+                middle_rear_glass=bool(request.form.getlist("middle_rear_glass")),
+                left_front_glass=bool(request.form.getlist("left_front_glass")),
+                left_rear_glass=bool(request.form.getlist("left_rear_glass")),
+                right_front_glass=bool(request.form.getlist("right_front_glass")),
+                right_rear_glass=bool(request.form.getlist("right_rear_glass")),
+                left_front_door=bool(request.form.getlist("left_front_door")),
+                left_rear_door=bool(request.form.getlist("left_rear_door")),
+                right_front_door=bool(request.form.getlist("right_front_door")),
+                right_rear_door=bool(request.form.getlist("right_rear_door")),
+                event=new_event,
+            )
             db_session.add(damage)
             db_session.add(new_event)
             db_session.commit()
@@ -184,6 +182,9 @@ def journal():
 
 
 def calculate_payment(lot_type, num_days):
+    '''
+    Calculates estimated lot price.
+    '''
     if lot_type == 1:
         return 30*num_days
     elif lot_type == 2:
@@ -205,6 +206,10 @@ def calculate_payment(lot_type, num_days):
 @app.route('/customers', methods=['GET', 'POST'])
 @login_required
 def customers():
+    '''
+    'GET': show customers table.
+    'POST': save a new customer or add a car to existing customer.
+    '''
     if request.method == 'POST':
         fullname = (request.form['fullname']).split()
         last_name = fullname[0]
@@ -241,7 +246,7 @@ def customers():
 def edit_event(id):
     '''
     Retrieve data from journal event edit form and
-    save it to the database.
+    save it to the database. Accessible only to 'admin' user.
     '''
     event = db_session.query(Event).get(id)
     if request.method == 'POST':
@@ -275,6 +280,9 @@ def edit_event(id):
 @app.route('/journal/pre_close_event/<int:id>')
 @login_required
 def pre_close_event(id):
+    '''
+    Calculate final lot price and commit car's departure time.
+    '''
     event = db_session.query(Event).get(id)
 
     delta = datetime.now() - event.enter_datetime
@@ -293,6 +301,11 @@ def pre_close_event(id):
 @app.route('/journal/close_event/<int:id>', methods=['POST'])
 @login_required
 def close_event(id):
+    '''
+    Save events data to duty's summary and ask if a customer took a car
+    by himself/herself or the other person did it (if so, a physical
+    affirmation paper needs to be filled).
+    '''
     if request.method == 'POST':
         event = db_session.query(Event).get(id)
         delta = datetime.now() - event.enter_datetime
@@ -339,8 +352,7 @@ def edit_customer(id):
 @login_required
 def add_customer_car(id):
     '''
-    Retrieve data from customer edit form and
-    save it to the database.
+    Add car to a customer if he or she has more than 1 vehicle.
     '''
 
     if request.method == 'POST':
@@ -388,6 +400,10 @@ def delete_customer(id):
 
 
 def find_duty_events(events, duty):
+    '''
+    Each duty starts about 8:00 and 20:00 (2 duties per day).
+    Calculate events finishing on this duty (cars to depart).
+    '''
     duty_events = []
     duty_end = datetime.now() + timedelta(hours=12)
     for event in events:
@@ -395,23 +411,25 @@ def find_duty_events(events, duty):
         if (departure_date > duty.opened_datetime and
             departure_date < duty_end):
             duty_events.append(event)
-
     return duty_events
 
 
 @app.route('/duty', methods=['GET', 'POST'])
 @login_required
 def duty():
+    '''
+    'GET': Receive duty's information (staff, number of free lots, number of
+    cars to depart, open time).
+    'POST': Open a new duty.
+    '''
     if request.method == 'POST':
-        now = datetime.now()
-
         duty = Duty(
             opened=True,
             num_cars_to_go=0,
             additional_payment=0,
             returned_payment=0,
             total_money=0,
-            opened_datetime=now,
+            opened_datetime=datetime.now(),
         )
 
         worker_id = int(request.form['worker'])
@@ -456,6 +474,9 @@ def duty():
 @app.route('/close_duty/<int:id>')
 @login_required
 def close_duty(id):
+    '''
+    Close duty and save info about events to db.
+    '''
     duty = db_session.query(Duty).get(id)
     events = db_session.query(Event).all()
     for user in duty.users:
